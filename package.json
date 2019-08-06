@@ -2,7 +2,7 @@
   "name": "textengine",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hydraulicus.github.io/textengine/",
+  "homepage": "https://hydraulicus.github.io/textengine/docs",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
