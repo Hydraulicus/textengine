@@ -11,12 +11,15 @@ export default function(
     width = 3400,
     offsetTop = 50,
     distortion = 0,
-    lineWidth = 2,
+    lineWidth = 3,
     fillStyle = '#4444f1'
   }
 ) {
 
-  console.log(ctx, tCtx);
+
+  ctx.fillStyle = 'rgba(50,0,0, 0.25)';
+  ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
+
 
   /* detect scale factor to fit short text into box width */
   const {width: textWidth, height: textHeight} = textMeasurer({
@@ -41,12 +44,12 @@ export default function(
   /* rect around the text */
   const coord = {
     x0: ctx.canvas.width / 2 - width / 2,
-    y0: offsetTop,
+    y0: 0,
     x: ctx.canvas.width / 2,
-    y: height + offsetTop,
+    y: height,
   };
 
-  tCtx.textBaseline = "alphabetic";
+  // tCtx.textBaseline = 'bottom';
   tCtx.fillStyle = fillStyle;
   tCtx.lineWidth = lineWidth;
   tCtx.rect(coord.x0, 0, width, height);
@@ -54,22 +57,30 @@ export default function(
   tCtx.textAlign = 'center';
   tCtx.font=`${fontSize * scaleFActor}px ${fontFamily}`;
 
-  // console.log(' coord.x =',  coord.x, 'height =', height, ' font =', fontSize * scaleFActor);
+  // console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', fontSize * scaleFActor);
 
+  tCtx.fillText(text, coord.x, height / 1.025, width);
+  tCtx.strokeText(text, coord.x, height / 1.025, width);
 
-  tCtx.fillText(text, coord.x, height, width);
-  tCtx.strokeText(text, coord.x, height, width);
+  if (distortion !== 0 ) {
+    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1 - Math.abs( distortion ), width+2, height + 2 * Math.abs(distortion) );
+    const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: distortion, curve: x => x * x});
+    tCtx.putImageData(scaledImageData, coord.x0-1, coord.y0-1);
+  }
 
   const img = new Image();
   img.src = tCtx.canvas.toDataURL();
-       tCtx.clearRect(coord.x0-1, coord.y0-1 - Math.abs( distortion ), width+2, height + Math.abs(distortion));
+       tCtx.clearRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
+
+
   img.onload = function (){
-    ctx.drawImage(img, 0, 0, 3600, height , 0, coord.y0, 3600, textHeight);
-    if (distortion !== 0 ) {
-      const imageData = ctx.getImageData(coord.x0-1, coord.y0-1 - Math.abs( distortion ), width+2, height + Math.abs(distortion) );
-      const scaledImageData = scaleImageData({ctx, imageData, amplitude: distortion, curve: x => x * x});
-      ctx.putImageData(scaledImageData, coord.x0-1, coord.y0-1 - Math.abs( distortion ) );
-    }
+      ctx.lineWidth = 10;
+      ctx.strokeStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(ctx.canvas.width, ctx.canvas.height);
+      ctx.stroke();
+    ctx.drawImage(img, 0, 0 - offsetTop, 3600, height + 2* Math.abs(distortion) + offsetTop, 0, coord.y0, 3600, textHeight + 2 * Math.abs(distortion) + offsetTop);
   };
   return this;
 

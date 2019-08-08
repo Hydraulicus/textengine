@@ -25,10 +25,10 @@ export function draw(ctx, tCtx, location) {
     {
       ctx,
       tCtx,
-      text: 'qu'.toUpperCase(),
+      text: 'LF'.toUpperCase(),
       fontSize: 1000,
       width: 3200,
-      offsetTop: 1800,
+      offsetTop: 200,
       lineWidth: 6,
       fillStyle: '#226',
       distortion: 500,
@@ -38,13 +38,13 @@ export function draw(ctx, tCtx, location) {
     {
       ctx,
       tCtx,
-      text: 'fi'.toUpperCase(),
-      fontSize: 1000,
+      text: 'SO'.toUpperCase(),
+      fontSize: 1200,
       width: 3200,
-      offsetTop: 800,
+      offsetTop: 1800,
       lineWidth: 6,
       fillStyle: '#226',
-      distortion: 500,
+      distortion: -500,
     }
   );
 
