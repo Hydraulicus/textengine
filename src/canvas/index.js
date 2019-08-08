@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import DrawText from './drawText'
+import DrawImage from './drawImage'
 // import styles from '../Index.module.scss'
 
 
@@ -21,11 +22,19 @@ export function draw(ctx, tCtx, location) {
   // ctx.fill(HOOK_PATH)
 
 
+  DrawImage({
+    ctx,
+    id: 'LOGO'
+    // src: '../logo.svg'
+    // src: './../assets/logos/fullSize/elephant.svg'
+    // src: './../assets/logos/elephant.svg'
+    });
+
   DrawText(
     {
       ctx,
       tCtx,
-      text: 'LF'.toUpperCase(),
+      text: 'LFfsfdssdgfs'.toUpperCase(),
       fontSize: 1000,
       width: 3200,
       offsetTop: 200,
@@ -38,7 +47,7 @@ export function draw(ctx, tCtx, location) {
     {
       ctx,
       tCtx,
-      text: 'SO'.toUpperCase(),
+      text: 'SOfsdfsfsdfs'.toUpperCase(),
       fontSize: 1200,
       width: 3200,
       offsetTop: 1800,

@@ -17,7 +17,7 @@ export default function(
 ) {
 
 
-  ctx.fillStyle = 'rgba(50,0,0, 0.25)';
+  ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
 
 

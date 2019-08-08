@@ -28,6 +28,7 @@ function App() {
         <button onClick={handleClear}>Clear</button>
         <button onClick={handleUndo}>Undo</button>
       </div>
+      <img src={logo} id='LOGO' alt="Logo" style = {{width: '20px', height: '20px'}}/>
       <canvas
         ref={canvasRef}
         style = {{width: '720px', height: '720px'}}
