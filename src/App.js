@@ -1,26 +1,45 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+// import ReactDOM from 'react-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
+import { usePersistentCanvas } from './canvas'
+import styles from './Index.module.scss'
+import './App.css'
+
 function App() {
+  const [locations, setLocations, canvasRef, textCanvasREf] = usePersistentCanvas()
+
+  function handleCanvasClick(e) {
+    setLocations([...locations, { x: e.clientX, y: e.clientY }])
+  }
+
+  function handleClear() {
+    setLocations([])
+  }
+
+  function handleUndo() {
+    setLocations(locations.slice(0, -1))
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Fragment>
+      <div className="controls">
+        <button onClick={handleClear}>Clear</button>
+        <button onClick={handleUndo}>Undo</button>
+      </div>
+      <canvas
+        ref={canvasRef}
+        style = {{width: '720px', height: '720px'}}
+        onClick={handleCanvasClick}
+      />
+      <canvas
+        className={styles.serviceCanvas}
+        ref={textCanvasREf}
+        style = {{width: '720px', height: '720px'}}
+      />
+    </Fragment>
+  )
 }
 
-export default App;
+export default App
