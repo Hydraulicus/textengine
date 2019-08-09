@@ -16,22 +16,18 @@ export default function(
   }
 ) {
 
-
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
-
 
   /* detect scale factor to fit short text into box width */
   const {width: textWidth, height: textHeight} = textMeasurer({
     text,
     fontSize: `${fontSize}px`,
-    // fontWeight: 'bold',
     fontFamily
   });
   const scaleFActor = ( width/textWidth > 1 ) ? width/textWidth : 1;
   const renderFontSize = fontSize * scaleFActor;
   // console.log(width, textHeight, textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
-  // ctx.setTransform(2,0,0,1,0,0);
 
   /* calculate height of text  */
   const {height} = textMeasurer({
@@ -52,7 +48,7 @@ export default function(
   // tCtx.textBaseline = 'bottom';
   tCtx.fillStyle = fillStyle;
   tCtx.lineWidth = lineWidth;
-  tCtx.rect(coord.x0, 0, width, height);
+  // tCtx.rect(coord.x0, 0, width, height);
   tCtx.stroke();
   tCtx.textAlign = 'center';
   tCtx.font=`${fontSize * scaleFActor}px ${fontFamily}`;
@@ -63,23 +59,15 @@ export default function(
   tCtx.strokeText(text, coord.x, height / 1.025, width);
 
   if (distortion !== 0 ) {
-    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1 - Math.abs( distortion ), width+2, height + 2 * Math.abs(distortion) );
+    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, width+2, height + 2 * Math.abs(distortion) );
     const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: distortion, curve: x => x * x});
     tCtx.putImageData(scaledImageData, coord.x0-1, coord.y0-1);
   }
 
   const img = new Image();
   img.src = tCtx.canvas.toDataURL();
-       tCtx.clearRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
-
-
+  tCtx.clearRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
   img.onload = function (){
-      ctx.lineWidth = 10;
-      ctx.strokeStyle = "blue";
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(ctx.canvas.width, ctx.canvas.height);
-      ctx.stroke();
     ctx.drawImage(img, 0, 0 - offsetTop, 3600, height + 2* Math.abs(distortion) + offsetTop, 0, coord.y0, 3600, textHeight + 2 * Math.abs(distortion) + offsetTop);
   };
   return this;

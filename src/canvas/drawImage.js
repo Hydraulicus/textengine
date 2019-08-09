@@ -8,7 +8,11 @@ export default function (
 ) {
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
   img.src = mascots[id];
-  img.onload = function (){
-    ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
-  };
+
+  return new Promise(resolve => {
+    img.onload = function (){
+      ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
+      resolve('drown')
+    };
+  });
 }

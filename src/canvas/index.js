@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from 'react'
 import DrawText from './drawText'
 import DrawImage from './drawImage'
 
-export function draw(ctx, tCtx, props) {
+export async function draw(ctx, tCtx, props) {
   ctx.fillStyle = '#fff';
   ctx.save();
   // ctx.scale(SCALE, SCALE)
   // ctx.translate(location.x / SCALE - OFFSET, location.y / SCALE - OFFSET)
   // ctx.fill(HOOK_PATH)
 
-  DrawImage({
+  await DrawImage({
     ctx,
     id: props.mascot
     });
@@ -34,7 +34,7 @@ export function draw(ctx, tCtx, props) {
       text: 'Bottom Sign'.toUpperCase(),
       fontSize: 1200,
       width: 3200,
-      offsetTop: 1800,
+      offsetTop: 2000,
       lineWidth: 6,
       fillStyle: '#226',
       distortion: -500,

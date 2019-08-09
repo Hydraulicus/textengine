@@ -16,14 +16,6 @@ function App() {
     setProps({...props, ...e })
   }
 
-  // function handleClear() {
-  //   setLocations([])
-  // }
-  //
-  // function handleUndo() {
-  //   setLocations(locations.slice(0, -1))
-  // }
-
   {/*<button onClick={handleClear}>Clear</button>*/}
   {/*<button onClick={handleUndo}>Undo</button>*/}
 
