@@ -1,38 +1,41 @@
 import React, {Fragment} from 'react';
-// import ReactDOM from 'react-dom';
-
-import logo from './logo.svg';
-import './App.css';
-
+import { SidePanel } from './UI/'
 import { usePersistentCanvas } from './canvas'
 import styles from './Index.module.scss'
 import './App.css'
 
 function App() {
-  const [locations, setLocations, canvasRef, textCanvasREf] = usePersistentCanvas()
+  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas()
 
   function handleCanvasClick(e) {
-    setLocations([...locations, { x: e.clientX, y: e.clientY }])
+    setProps([...props, { x: e.clientX, y: e.clientY }])
   }
 
-  function handleClear() {
-    setLocations([])
+  function eventHandler(e) {
+    console.log('eventHandler', e);
+    setProps({...props, ...e })
   }
 
-  function handleUndo() {
-    setLocations(locations.slice(0, -1))
-  }
+  // function handleClear() {
+  //   setLocations([])
+  // }
+  //
+  // function handleUndo() {
+  //   setLocations(locations.slice(0, -1))
+  // }
+
+  {/*<button onClick={handleClear}>Clear</button>*/}
+  {/*<button onClick={handleUndo}>Undo</button>*/}
+
   return (
     <Fragment>
       <div className="controls">
-        <button onClick={handleClear}>Clear</button>
-        <button onClick={handleUndo}>Undo</button>
+
       </div>
-      <img src={logo} id='LOGO' alt="Logo" style = {{width: '20px', height: '20px'}}/>
+      <SidePanel eventHandler={eventHandler}/>
       <canvas
         ref={canvasRef}
         style = {{width: '720px', height: '720px'}}
-        onClick={handleCanvasClick}
       />
       <canvas
         className={styles.serviceCanvas}
