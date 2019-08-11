@@ -4,12 +4,15 @@ import { usePersistentCanvas } from './canvas'
 import styles from './Index.module.scss'
 import './App.css'
 
-function App() {
-  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas()
-
-  function handleCanvasClick(e) {
-    setProps([...props, { x: e.clientX, y: e.clientY }])
+const initialProps = {
+  canva: {
+    width: 720,
+    height: 720
   }
+};
+
+function App() {
+  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...initialProps})
 
   function eventHandler(e) {
     console.log('eventHandler', e);

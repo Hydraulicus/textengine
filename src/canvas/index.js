@@ -3,11 +3,10 @@ import DrawText from './drawText'
 import DrawImage from './drawImage'
 
 export async function draw(ctx, tCtx, props) {
+  const { canva } = props;
+
   ctx.fillStyle = '#fff';
   ctx.save();
-  // ctx.scale(SCALE, SCALE)
-  // ctx.translate(location.x / SCALE - OFFSET, location.y / SCALE - OFFSET)
-  // ctx.fill(HOOK_PATH)
 
   await DrawImage({
     ctx,
@@ -19,12 +18,12 @@ export async function draw(ctx, tCtx, props) {
       ctx,
       tCtx,
       text: 'Top Sign'.toUpperCase(),
-      fontSize: 1000,
-      width: 3200,
-      offsetTop: 200,
+      fontSize: 1000, //designed size
+      width: 0.85 * canva.width, //designed width = 3600
+      offsetTop: 100, //designed size
       lineWidth: 6,
       fillStyle: '#226',
-      distortion: 500,
+      distortion: 500, //designed size,
     }
   );
   DrawText(
@@ -32,12 +31,12 @@ export async function draw(ctx, tCtx, props) {
       ctx,
       tCtx,
       text: 'Bottom Sign'.toUpperCase(),
-      fontSize: 1200,
-      width: 3200,
-      offsetTop: 2000,
+      fontSize: 1200, //designed size
+      width: 0.85 * canva.width, //designed width = 3600
+      offsetTop: 2200, //designed size
       lineWidth: 6,
       fillStyle: '#226',
-      distortion: -500,
+      distortion: -500, //designed size
     }
   );
 
@@ -45,8 +44,9 @@ export async function draw(ctx, tCtx, props) {
 }
 
 export function usePersistentState(init) {
-  const [props, setProps] = useState(
-    JSON.parse(localStorage.getItem('draw-app')) || init
+  const [props, setProps] = useState({
+    ...JSON.parse(localStorage.getItem('draw-app')),  ...init
+  }
   );
 
   useEffect(() => {
@@ -56,21 +56,22 @@ export function usePersistentState(init) {
   return [props, setProps]
 }
 
-export function usePersistentCanvas() {
-  const [props, setProps] = usePersistentState([]);
+export function usePersistentCanvas(initialProps) {
+  const [props, setProps] = usePersistentState(initialProps);
   const canvasRef = useRef(null);
   const textCanvasREf = useRef(null);
   useEffect(() => {
+    const { canva } = props;
     const canvas = canvasRef.current;
     const textCanvas = textCanvasREf.current;
     const ctx = canvas.getContext('2d');
     const tCtx = textCanvas.getContext('2d');
-    canvas.setAttribute('width', 3600);
-    canvas.setAttribute('height', 3600);
-    textCanvas.setAttribute('width', 3600);
-    textCanvas.setAttribute('height', 3600);
+    canvas.setAttribute('width', canva.width);
+    canvas.setAttribute('height', canva.height);
+    textCanvas.setAttribute('width', canva.width);
+    textCanvas.setAttribute('height', canva.height);
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    console.log('props =', props);
+    console.log('props =', props );
     draw(ctx, tCtx, props);
     // locations.forEach(location => draw(ctx, tCtx, location))
   })

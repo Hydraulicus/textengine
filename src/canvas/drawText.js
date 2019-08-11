@@ -12,21 +12,33 @@ export default function(
     offsetTop = 50,
     distortion = 0,
     lineWidth = 3,
-    fillStyle = '#4444f1'
+    fillStyle = '#4444f1',
+
+    designedSize = {
+      width: 3600,
+      height: 3600
+    }
   }
 ) {
 
+  const { width: designedWidth, height: designedHeight } = designedSize;
+  const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
+  const XFactor = ctxWidth / designedWidth;
+  const YFactor = ctxHeight / designedHeight;
+
+  console.log(ctxWidth, ctxHeight, designedWidth, designedHeight, XFactor, YFactor);
+
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
-  ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
+  ctx.fillRect(0,0, ctxWidth, ctxHeight);
 
   /* detect scale factor to fit short text into box width */
   const {width: textWidth, height: textHeight} = textMeasurer({
     text,
-    fontSize: `${fontSize}px`,
+    fontSize: `${YFactor * fontSize}px`,
     fontFamily
   });
   const scaleFActor = ( width/textWidth > 1 ) ? width/textWidth : 1;
-  const renderFontSize = fontSize * scaleFActor;
+  const renderFontSize = YFactor * fontSize * scaleFActor;
   // console.log(width, textHeight, textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
 
   /* calculate height of text  */
@@ -39,9 +51,9 @@ export default function(
   // console.log('textHeight =', textHeight, 'height =', height);
   /* rect around the text */
   const coord = {
-    x0: ctx.canvas.width / 2 - width / 2,
+    x0: ctxWidth / 2 - width / 2,
     y0: 0,
-    x: ctx.canvas.width / 2,
+    x: ctxWidth / 2,
     y: height,
   };
 
@@ -51,16 +63,16 @@ export default function(
   // tCtx.rect(coord.x0, 0, width, height);
   tCtx.stroke();
   tCtx.textAlign = 'center';
-  tCtx.font=`${fontSize * scaleFActor}px ${fontFamily}`;
+  tCtx.font=`${YFactor * fontSize * scaleFActor}px ${fontFamily}`;
 
-  // console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', fontSize * scaleFActor);
+  // console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', YFactor * fontSize * scaleFActor);
 
   tCtx.fillText(text, coord.x, height / 1.025, width);
   tCtx.strokeText(text, coord.x, height / 1.025, width);
 
   if (distortion !== 0 ) {
-    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, width+2, height + 2 * Math.abs(distortion) );
-    const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: distortion, curve: x => x * x});
+    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, width+2, height + 2 * Math.abs(YFactor * distortion) );
+    const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: YFactor * distortion, curve: x => x * x});
     tCtx.putImageData(scaledImageData, coord.x0-1, coord.y0-1);
   }
 
@@ -68,7 +80,7 @@ export default function(
   img.src = tCtx.canvas.toDataURL();
   tCtx.clearRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
   img.onload = function (){
-    ctx.drawImage(img, 0, 0 - offsetTop, 3600, height + 2* Math.abs(distortion) + offsetTop, 0, coord.y0, 3600, textHeight + 2 * Math.abs(distortion) + offsetTop);
+    ctx.drawImage(img, 0, 0 - YFactor * offsetTop, ctxWidth, height + 2* Math.abs(YFactor * distortion) + YFactor * offsetTop, 0, coord.y0, ctxWidth, textHeight + 2 * Math.abs(YFactor * distortion) + YFactor * offsetTop);
   };
   return this;
 
