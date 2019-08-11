@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { saveAs } from 'file-saver';
 import DrawText from './drawText'
 import DrawImage from './drawImage'
 
@@ -11,9 +12,9 @@ export async function draw(ctx, tCtx, props) {
   await DrawImage({
     ctx,
     id: props.mascot
-    });
+  });
 
-  DrawText(
+  await DrawText(
     {
       ctx,
       tCtx,
@@ -26,7 +27,7 @@ export async function draw(ctx, tCtx, props) {
       distortion: 500, //designed size,
     }
   );
-  DrawText(
+  await DrawText(
     {
       ctx,
       tCtx,
@@ -40,13 +41,16 @@ export async function draw(ctx, tCtx, props) {
     }
   );
 
-  ctx.restore()
+  return new Promise(resolve => {
+    ctx.restore();
+    resolve('all are drown')
+  });
 }
 
 export function usePersistentState(init) {
   const [props, setProps] = useState({
-    ...JSON.parse(localStorage.getItem('draw-app')),  ...init
-  }
+      ...JSON.parse(localStorage.getItem('draw-app')),  ...init
+    }
   );
 
   useEffect(() => {
@@ -60,7 +64,37 @@ export function usePersistentCanvas(initialProps) {
   const [props, setProps] = usePersistentState(initialProps);
   const canvasRef = useRef(null);
   const textCanvasREf = useRef(null);
-  useEffect(() => {
+
+  const saveCanvasToFile = (fileName) => {
+    const canvas = canvasRef.current;
+    canvas.toBlob(function(blob) {
+      saveAs(blob, fileName);
+    });
+  };
+
+  async function drawing (ctx, tCtx, props) {
+    await draw(ctx, tCtx, props);
+    if (props.saveLQ) {
+      saveCanvasToFile(`export_LQ_${Date.now()}.png`);
+      setProps({
+        ...props,
+        saveLQ: false,
+      });
+    }
+    if (props.saveHQ) {
+      saveCanvasToFile(`export_HQ_${Date.now()}.png`);
+      setProps({
+        ...props,
+        saveHQ: false,
+        canva: {
+          width: 720,
+          height: 720
+        }
+      });
+    }
+  }
+
+  useEffect( () => {
     const { canva } = props;
     const canvas = canvasRef.current;
     const textCanvas = textCanvasREf.current;
@@ -71,10 +105,8 @@ export function usePersistentCanvas(initialProps) {
     textCanvas.setAttribute('width', canva.width);
     textCanvas.setAttribute('height', canva.height);
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    console.log('props =', props );
-    draw(ctx, tCtx, props);
-    // locations.forEach(location => draw(ctx, tCtx, location))
-  })
+    drawing(ctx, tCtx, props)
+  });
 
   return [props, setProps, canvasRef, textCanvasREf]
 }

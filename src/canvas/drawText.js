@@ -21,12 +21,14 @@ export default function(
   }
 ) {
 
-  const { width: designedWidth, height: designedHeight } = designedSize;
+  const {
+    // width: designedWidth,
+    height: designedHeight } = designedSize;
   const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
-  const XFactor = ctxWidth / designedWidth;
+  // const XFactor = ctxWidth / designedWidth;
   const YFactor = ctxHeight / designedHeight;
 
-  console.log(ctxWidth, ctxHeight, designedWidth, designedHeight, XFactor, YFactor);
+  // console.log(ctxWidth, ctxHeight, designedWidth, designedHeight, XFactor, YFactor);
 
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   ctx.fillRect(0,0, ctxWidth, ctxHeight);
@@ -79,10 +81,13 @@ export default function(
   const img = new Image();
   img.src = tCtx.canvas.toDataURL();
   tCtx.clearRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
-  img.onload = function (){
-    ctx.drawImage(img, 0, 0 - YFactor * offsetTop, ctxWidth, height + 2* Math.abs(YFactor * distortion) + YFactor * offsetTop, 0, coord.y0, ctxWidth, textHeight + 2 * Math.abs(YFactor * distortion) + YFactor * offsetTop);
-  };
-  return this;
+
+  return new Promise(resolve => {
+    img.onload = function (){
+      ctx.drawImage(img, 0, 0 - YFactor * offsetTop, ctxWidth, height + 2* Math.abs(YFactor * distortion) + YFactor * offsetTop, 0, coord.y0, ctxWidth, textHeight + 2 * Math.abs(YFactor * distortion) + YFactor * offsetTop);
+      resolve('drown')
+    };
+  });
 
 }
 

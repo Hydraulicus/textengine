@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://hydraulicus.github.io/textengine",
   "dependencies": {
+    "file-saver": "^2.0.2",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -34,6 +35,7 @@
     ]
   },
   "devDependencies": {
-    "@material-ui/core": "^4.3.1"
+    "@material-ui/core": "^4.3.1",
+    "classnames": "^2.2.6"
   }
 }

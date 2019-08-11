@@ -1,6 +1,21 @@
 //@import './constants/index.scss';
 
+
+
+.canvases {
+  width: 720px;
+  height: 720px;
+
+  display: block;
+  margin: 0.5rem auto;
+}
+
+.canvaContainer {
+  width: 100%;
+}
+
 .serviceCanvas {
   position: absolute;
-  opacity: 0.5;
+  display: none;
+  //opacity: 0.5;
 }
