@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -26,6 +27,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ({eventHandler, props}) {
+  const { texts } = props;
+
   const classes = useStyles();
 
   // const [values, setValues] = React.useState({
@@ -39,15 +42,23 @@ export default function ({eventHandler, props}) {
     eventHandler({ [name]: event.target.value });
   };
 
+  const handleChangeTextsProp = (idx, name) => event => {
+    const newTexts = texts;
+    newTexts[idx] =  {
+      ...texts[idx],
+      text: (event.target.value).toUpperCase(),
+    };
+    eventHandler({
+      texts: newTexts
+    });
+  };
 
   return <Fragment>
-
     <h3 style={{fontFamily: props.fontFamily}} >Please select options</h3>
-
     <TextField
-      id="standard-select-currency-native"
+      id='standard-select-currency-native'
       select
-      label="Select font"
+      label='Select font'
       className={classes.textField}
       value={props.fontFamily}
       onChange={handleChange('fontFamily')}
@@ -57,8 +68,8 @@ export default function ({eventHandler, props}) {
           className: classes.menu,
         },
       }}
-      helperText="Please select font"
-      margin="normal"
+      helperText='Please select font'
+      margin='normal'
     >
       {fonts.map(option => (
         <option key={option.value} value={option.value}  style={{fontFamily: option.value}}>
@@ -66,6 +77,22 @@ export default function ({eventHandler, props}) {
         </option>
       ))}
     </TextField>
+
+
+    { texts.map( (textItem, idx) => <Fragment key={textItem.id}>
+        <TextField
+          id={textItem.id}
+          label={textItem.label}
+          defaultValue={textItem.text}
+          onChange={handleChangeTextsProp(idx, 'text')}
+          className={classNames(classes.textField, classes.dense)}
+          margin='dense'
+          variant='outlined'
+        />
+    </Fragment>)
+    }
+
+
   </Fragment>
 
 }

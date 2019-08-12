@@ -2,7 +2,7 @@ import DrawText from './drawText'
 import DrawImage from './drawImage'
 
 export default async function (ctx, tCtx, props) {
-  const { canva, fontFamily } = props;
+  const { fontFamily } = props;
 
   ctx.fillStyle = '#fff';
   ctx.save();
@@ -17,13 +17,7 @@ export default async function (ctx, tCtx, props) {
       ctx,
       tCtx,
       fontFamily,
-      text: 'Top Sign'.toUpperCase(),
-      fontSize: 1000, //designed size
-      width: 0.85 * canva.width, //designed width = 3600
-      offsetTop: 100, //designed size
-      lineWidth: 6,
-      fillStyle: '#226',
-      distortion: 500, //designed size,
+      ...props.texts[0],
     }
   );
   await DrawText(
@@ -31,13 +25,7 @@ export default async function (ctx, tCtx, props) {
       ctx,
       tCtx,
       fontFamily,
-      text: 'Bottom Sign'.toUpperCase(),
-      fontSize: 1000, //designed size
-      width: 0.85 * canva.width, //designed width = 3600
-      offsetTop: 2300, //designed size
-      lineWidth: 6,
-      fillStyle: '#226',
-      distortion: -500, //designed size
+      ...props.texts[1],
     }
   );
 

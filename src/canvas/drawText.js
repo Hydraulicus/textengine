@@ -7,7 +7,6 @@ export default function(
     tCtx,
     text = '1234567890abcdefghihklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
     fontSize = 80,
-    // fontFamily = 'Arial',
     fontFamily = 'AtomicAge',
     width = 3400,
     offsetTop = 50,
@@ -28,8 +27,6 @@ export default function(
   const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
   // const XFactor = ctxWidth / designedWidth;
   const YFactor = ctxHeight / designedHeight;
-
-  console.log(fontFamily);
 
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   ctx.fillRect(0,0, ctxWidth, ctxHeight);

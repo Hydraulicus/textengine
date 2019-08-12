@@ -27,7 +27,7 @@ export function usePersistentCanvas(initialProps) {
   };
 
   async function drawing (ctx, tCtx, props) {
-    console.log('drawing props =', props);
+    // console.log('drawing props =', props);
     await draw(ctx, tCtx, props);
     if (props.saveLQ) {
       saveCanvasToFile(`export_LQ_${Date.now()}.png`);
