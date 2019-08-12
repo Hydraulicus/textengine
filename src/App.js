@@ -4,14 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
 import Paper from '@material-ui/core/Paper';
-
-
-import { SidePanel } from './UI/'
+import { SidePanel, MascotsPanel } from './UI/'
 import { usePersistentCanvas } from './canvas'
+import {HQSize, initialProps} from './constants/initSettings';
 import styles from './Index.module.scss'
 import './App.css'
+// import './fonts.scss'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,27 +24,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
   },
 }));
-
-const HQSize = {
-  canva: {
-    width: 3600,
-    height: 3600
-  }
-};
-
-const LQSize = {
-  canva: {
-    width: 720,
-    height: 720
-  }
-};
-
-
-const initialProps = {
-  saveHQ: false,
-  saveLQ: false,
-  ...LQSize,
-};
 
 function App() {
   const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...initialProps});
@@ -62,11 +40,13 @@ function App() {
       <Grid container spacing={3} className={classes.root}>
 
         <Grid item xs={12}>
-          <SidePanel eventHandler={eventHandler}/>
+          <MascotsPanel eventHandler={eventHandler}/>
         </Grid>
 
         <Grid item xs={5}>
-          <Paper className={classes.paper}>Options</Paper>
+          <Paper className={classes.paper}>
+            <SidePanel eventHandler={eventHandler} props={props}/>
+          </Paper>
         </Grid>
         <Grid item xs={7}>
           <div className={styles.canvaContainer}>

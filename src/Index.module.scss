@@ -1,6 +1,6 @@
 //@import './constants/index.scss';
 
-
+//@import './constants/fonts';
 
 .canvases {
   width: 720px;
@@ -18,4 +18,55 @@
   position: absolute;
   display: none;
   //opacity: 0.5;
+}
+
+@font-face {
+  font-family: 'Arvo';
+  src: local('Arvo Bold'), local('Arvo-Bold'), url(./assets/fonts/Arvo-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'AtomicAge';
+  src: local('AtomicAge Regular'), local('AtomicAge-Regular'), url(./assets/fonts/AtomicAge-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Bahiana';
+  src: local('Bahiana Regular'), local('Bahiana-Regular'), url(./assets/fonts/Bahiana-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'BerkshireSwash';
+  src: local('BerkshireSwash Regular'), local('BerkshireSwash-Regular'), url(./assets/fonts/BerkshireSwash-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'BlendaScript';
+  src: local('BlendaScript'), url(./assets/fonts/BlendaScript.otf) format('opentype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'LilitaOne';
+  src: local('LilitaOne Regular'), local('LilitaOne-Regular'), url(./assets/fonts/LilitaOne-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'GrandHotel';
+  src: local('GrandHotel Regular'), local('GrandHotel-Regular'), url(./assets/fonts/GrandHotel-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'MedulaOne';
+  src: local('MedulaOne Regular'), local('MedulaOne-Regular'), url(./assets/fonts/MedulaOne-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'PirataOne';
+  src: local('PirataOne Regular'), local('PirataOne-Regular'), url(./assets/fonts/PirataOne-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Teko';
+  src: local('Teko Regular'), local('Teko-Regular'), url(./assets/fonts/LilitaOne-Regular.ttf) format('truetype');
+  font-weight: normal;
 }

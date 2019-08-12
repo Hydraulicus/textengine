@@ -1,51 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { saveAs } from 'file-saver';
-import DrawText from './drawText'
-import DrawImage from './drawImage'
-
-export async function draw(ctx, tCtx, props) {
-  const { canva } = props;
-
-  ctx.fillStyle = '#fff';
-  ctx.save();
-
-  await DrawImage({
-    ctx,
-    id: props.mascot
-  });
-
-  await DrawText(
-    {
-      ctx,
-      tCtx,
-      text: 'Top Sign'.toUpperCase(),
-      fontSize: 1000, //designed size
-      width: 0.85 * canva.width, //designed width = 3600
-      offsetTop: 100, //designed size
-      lineWidth: 6,
-      fillStyle: '#226',
-      distortion: 500, //designed size,
-    }
-  );
-  await DrawText(
-    {
-      ctx,
-      tCtx,
-      text: 'Bottom Sign'.toUpperCase(),
-      fontSize: 1200, //designed size
-      width: 0.85 * canva.width, //designed width = 3600
-      offsetTop: 2200, //designed size
-      lineWidth: 6,
-      fillStyle: '#226',
-      distortion: -500, //designed size
-    }
-  );
-
-  return new Promise(resolve => {
-    ctx.restore();
-    resolve('all are drown')
-  });
-}
+import draw from './drawingSequence'
 
 export function usePersistentState(init) {
   const [props, setProps] = useState({
@@ -56,7 +11,6 @@ export function usePersistentState(init) {
   useEffect(() => {
     localStorage.setItem('draw-app', JSON.stringify(props))
   });
-
   return [props, setProps]
 }
 
@@ -73,6 +27,7 @@ export function usePersistentCanvas(initialProps) {
   };
 
   async function drawing (ctx, tCtx, props) {
+    console.log('drawing props =', props);
     await draw(ctx, tCtx, props);
     if (props.saveLQ) {
       saveCanvasToFile(`export_LQ_${Date.now()}.png`);

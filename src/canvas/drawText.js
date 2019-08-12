@@ -7,7 +7,8 @@ export default function(
     tCtx,
     text = '1234567890abcdefghihklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
     fontSize = 80,
-    fontFamily = 'PirataOne-Regular',
+    // fontFamily = 'Arial',
+    fontFamily = 'AtomicAge',
     width = 3400,
     offsetTop = 50,
     distortion = 0,
@@ -28,7 +29,7 @@ export default function(
   // const XFactor = ctxWidth / designedWidth;
   const YFactor = ctxHeight / designedHeight;
 
-  // console.log(ctxWidth, ctxHeight, designedWidth, designedHeight, XFactor, YFactor);
+  console.log(fontFamily);
 
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   ctx.fillRect(0,0, ctxWidth, ctxHeight);
