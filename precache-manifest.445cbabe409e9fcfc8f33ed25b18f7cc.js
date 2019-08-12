@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "87d92b154a8660435b32ced0bf57bc6a",
+    "revision": "11118594feef16c7219378e7be97e0f5",
     "url": "/textengine/index.html"
   },
   {
-    "revision": "504c9773f8af5d2bd5e1",
+    "revision": "1571237ca69d3bce4845",
     "url": "/textengine/static/css/main.d880d1ab.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/textengine/static/js/2.e49d8df2.chunk.js"
   },
   {
-    "revision": "504c9773f8af5d2bd5e1",
-    "url": "/textengine/static/js/main.7951e409.chunk.js"
+    "revision": "1571237ca69d3bce4845",
+    "url": "/textengine/static/js/main.909e2aea.chunk.js"
   },
   {
     "revision": "a43c7345ef17ffb6d993",
