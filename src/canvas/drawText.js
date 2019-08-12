@@ -25,7 +25,7 @@ export default function(
     // width: designedWidth,
     height: designedHeight } = designedSize;
   const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
-  // const XFactor = ctxWidth / designedWidth;
+  const XFactor = ctxWidth / designedSize.width;
   const YFactor = ctxHeight / designedHeight;
 
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
@@ -37,9 +37,9 @@ export default function(
     fontSize: `${YFactor * fontSize}px`,
     fontFamily
   });
-  const scaleFActor = ( width/textWidth > 1 ) ? width/textWidth : 1;
+  const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
   const renderFontSize = YFactor * fontSize * scaleFActor;
-  // console.log(width, textHeight, textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
+  // console.log(XFactor * width, textHeight, textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
 
   /* calculate height of text  */
   const {height} = textMeasurer({
@@ -51,7 +51,7 @@ export default function(
   // console.log('textHeight =', textHeight, 'height =', height);
   /* rect around the text */
   const coord = {
-    x0: ctxWidth / 2 - width / 2,
+    x0: ctxWidth / 2 - XFactor * width / 2,
     y0: 0,
     x: ctxWidth / 2,
     y: height,
@@ -67,11 +67,11 @@ export default function(
 
   // console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', YFactor * fontSize * scaleFActor);
 
-  tCtx.fillText(text, coord.x, height / 1.025, width);
-  tCtx.strokeText(text, coord.x, height / 1.025, width);
+  tCtx.fillText(text, coord.x, height / 1.025, XFactor * width);
+  tCtx.strokeText(text, coord.x, height / 1.025, XFactor * width);
 
   if (distortion !== 0 ) {
-    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, width+2, height + 2 * Math.abs(YFactor * distortion) );
+    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, XFactor * width+2, height + 2 * Math.abs(YFactor * distortion) );
     const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: YFactor * distortion, curve: x => x * x});
     tCtx.putImageData(scaledImageData, coord.x0-1, coord.y0-1);
   }
