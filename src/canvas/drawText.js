@@ -48,7 +48,7 @@ export default function(
     // fontWeight: 'bold',
     fontFamily
   });
-  // console.log('textHeight =', textHeight, 'height =', height);
+  console.log('textHeight =', textHeight,' width =', width, 'height =', height);
   /* rect around the text */
   const coord = {
     x0: ctxWidth / 2 - XFactor * width / 2,
@@ -60,8 +60,8 @@ export default function(
   // tCtx.textBaseline = 'bottom';
   tCtx.fillStyle = fillStyle;
   tCtx.lineWidth = lineWidth;
-  // tCtx.rect(coord.x0, 0, width, height);
-  tCtx.stroke();
+  // tCtx.rect(coord.x0, 0, XFactor * width, height);
+  // tCtx.stroke();
   tCtx.textAlign = 'center';
   tCtx.font=`${YFactor * fontSize * scaleFActor}px ${fontFamily}`;
 
@@ -71,9 +71,9 @@ export default function(
   tCtx.strokeText(text, coord.x, height / 1.025, XFactor * width);
 
   if (distortion !== 0 ) {
-    const imageData = tCtx.getImageData(coord.x0-1, coord.y0-1, XFactor * width+2, height + 2 * Math.abs(YFactor * distortion) );
+    const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width+6, height + 6 * Math.abs(YFactor * distortion) );
     const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: YFactor * distortion, curve: x => x * x});
-    tCtx.putImageData(scaledImageData, coord.x0-1, coord.y0-1);
+    tCtx.putImageData(scaledImageData, coord.x0-3, coord.y0-3);
   }
 
   const img = new Image();

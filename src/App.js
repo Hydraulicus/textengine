@@ -43,12 +43,12 @@ function App() {
           <MascotsPanel eventHandler={eventHandler}/>
         </Grid>
 
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>
             <SidePanel eventHandler={eventHandler} props={props}/>
           </Paper>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={8}>
           <div className={styles.canvaContainer}>
             <canvas
               id='THEMAINCANVAS'
