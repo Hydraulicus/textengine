@@ -1,15 +1,20 @@
 import React, {Fragment} from 'react';
 import classNames from 'classnames';
+import ColorPicker from 'material-ui-color-picker';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import {fonts} from './../../assets'
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(1, 2),
+    margin: theme.spacing(3, 2),
+  },
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -17,7 +22,9 @@ const useStyles = makeStyles(theme => ({
     width: '15rem',
     fontFamily: 'AtomicAge'
   },
-
+  colorPicker: {
+    backgroundColor: 'red'
+  },
   dense: {
     marginTop: 19,
   },
@@ -28,15 +35,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ({eventHandler, props}) {
   const { texts } = props;
-
   const classes = useStyles();
-
-  // const [values, setValues] = React.useState({
-  //   name: 'Cat in the Hat',
-  //   age: '',
-  //   multiline: 'Controlled',
-  //   currency: 'EUR',
-  // });
 
   const handleChange = name => event => {
     eventHandler({ [name]: event.target.value });
@@ -52,6 +51,18 @@ export default function ({eventHandler, props}) {
       texts: newTexts
     });
   };
+
+  const handleChangeTextsColorsProp = (idx, name) => color => {
+    const newTexts = texts;
+    newTexts[idx] =  {
+      ...texts[idx],
+      [name]: color,
+    };
+    eventHandler({
+      texts: newTexts
+    });
+  };
+
 
   return <Fragment>
     <h3 style={{fontFamily: props.fontFamily}} >Please select options</h3>
@@ -79,20 +90,34 @@ export default function ({eventHandler, props}) {
     </TextField>
 
 
-    { texts.map( (textItem, idx) => <Fragment key={textItem.id}>
-        <TextField
-          id={textItem.id}
-          label={textItem.label}
-          defaultValue={textItem.text}
-          onChange={handleChangeTextsProp(idx, 'text')}
-          className={classNames(classes.textField, classes.dense)}
-          margin='dense'
-          variant='outlined'
-        />
-    </Fragment>)
+    { texts.map( (textItem, idx) => <Paper className={classes.root} key={textItem.id}>
+      <TextField
+        id={textItem.id}
+        label={textItem.label}
+        defaultValue={textItem.text}
+        onChange={handleChangeTextsProp(idx, 'text')}
+        className={classNames(classes.textField, classes.dense)}
+      />
+      <Grid container justify="center" spacing={3}>
+        <Grid item xs={5}>
+          <ColorPicker
+            name='color'
+            label={`strokeStyle`}
+            value={textItem.strokeStyle}
+            onChange={handleChangeTextsColorsProp(idx, 'strokeStyle')}
+          />
+        </Grid>
+        <Grid item xs={5}>
+          <ColorPicker
+            name='color'
+            label={`filling`}
+            value={textItem.fillStyle}
+            onChange={handleChangeTextsColorsProp(idx, 'fillStyle')}
+          />
+        </Grid>
+      </Grid>
+      </Paper>)
     }
-
-
   </Fragment>
 
 }

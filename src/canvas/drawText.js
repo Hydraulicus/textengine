@@ -13,6 +13,7 @@ export default function(
     distortion = 0,
     lineWidth = 3,
     fillStyle = '#4444f1',
+    strokeStyle = '#4444f1',
 
     designedSize = {
       width: 3600,
@@ -48,7 +49,7 @@ export default function(
     // fontWeight: 'bold',
     fontFamily
   });
-  console.log('textHeight =', textHeight,' width =', width, 'height =', height);
+  // console.log('textHeight =', textHeight,' width =', width, 'height =', height);
   /* rect around the text */
   const coord = {
     x0: ctxWidth / 2 - XFactor * width / 2,
@@ -58,6 +59,7 @@ export default function(
   };
 
   // tCtx.textBaseline = 'bottom';
+  tCtx.strokeStyle = strokeStyle;
   tCtx.fillStyle = fillStyle;
   tCtx.lineWidth = lineWidth;
   // tCtx.rect(coord.x0, 0, XFactor * width, height);
@@ -67,8 +69,8 @@ export default function(
 
   // console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', YFactor * fontSize * scaleFActor);
 
-  tCtx.fillText(text, coord.x, height / 1.025, XFactor * width);
-  tCtx.strokeText(text, coord.x, height / 1.025, XFactor * width);
+  tCtx.fillText(text, coord.x, (height + 3) / 1.025, XFactor * width);
+  tCtx.strokeText(text, coord.x, (height + 3) / 1.025, XFactor * width);
 
   if (distortion !== 0 ) {
     const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width+6, height + 6 * Math.abs(YFactor * distortion) );
@@ -82,7 +84,7 @@ export default function(
 
   return new Promise(resolve => {
     img.onload = function (){
-      ctx.drawImage(img, 0, 0 - YFactor * offsetTop, ctxWidth, height + 2* Math.abs(YFactor * distortion) + YFactor * offsetTop, 0, coord.y0, ctxWidth, textHeight + 2 * Math.abs(YFactor * distortion) + YFactor * offsetTop);
+      ctx.drawImage(img, 0, 0 - YFactor * offsetTop, ctxWidth, height + 2* Math.abs(YFactor * distortion) + YFactor * offsetTop , 0, coord.y0, ctxWidth, textHeight + 2 * Math.abs(YFactor * distortion) + YFactor * offsetTop);
       resolve('drown')
     };
   });
