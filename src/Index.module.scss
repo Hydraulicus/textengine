@@ -16,8 +16,9 @@
 
 .serviceCanvas {
   position: absolute;
-  display: none;
+  //display: none;
   //opacity: 0.5;
+  border: 3px black dashed;
 }
 
 @font-face {

@@ -23,11 +23,11 @@ export default function(
 ) {
 
   const {
-    // width: designedWidth,
+    width: designedWidth,
     height: designedHeight } = designedSize;
   const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
   const { width: tCtxWidth, height: tCtxHeight } = tCtx.canvas;
-  const XFactor = ctxWidth / designedSize.width;
+  const XFactor = ctxWidth / designedWidth;
   const YFactor = ctxHeight / designedHeight;
 
   ctx.fillStyle = 'rgba(10,0,0, 0.05)';
@@ -40,54 +40,45 @@ export default function(
     fontFamily
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
-
+// debugger
   const scale_Y_FActor = ( YFactor * fontSize / textHeight > 1 ) ? YFactor * fontSize / textHeight : 1;
-  // const scale_Y_FActor = 1;
 
   const renderFontSize = YFactor * fontSize * scaleFActor;
 
   console.log( 'scale_Y_FActor =', scale_Y_FActor, 'scaleFActor =', scaleFActor);
 
-  console.log(XFactor * width, textHeight, textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
+  console.log( XFactor * width / scaleFActor, textHeight, ' textWidth = ', textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
 
-  /* calculate height of text  */
-  const {height, yOffset} = textMeasurer({
-    text,
-    fontSize: `${renderFontSize}px`,
-    // fontWeight: 'bold',
-    fontFamily
-  });
-
-  console.log('textHeight =', textHeight,' width =', width, ' ======> height =', height);
-  /* rect around the text */
   const coord = {
-    x0: ctxWidth / 2 - XFactor * width / 2,
-    y0: 0,
-    x: ctxWidth / 2,
-    y: height/scale_Y_FActor + 3,
+    // x0: ctxWidth / 2 - XFactor * width / 2,
+    x0: 0 + 3,
+    y0: 0 + 3,
+    x: textWidth + 6,
+    y: textHeight + 6,
   };
 
   // tCtx.textBaseline = 'bottom';
   tCtx.strokeStyle = strokeStyle;
   tCtx.fillStyle = fillStyle;
   tCtx.lineWidth = lineWidth;
-  tCtx.rect(coord.x0, 0, XFactor * width, height + 6);
+  // tCtx.fillRect(coord.x0, coord.y0, textWidth, textHeight);
+  tCtx.rect(coord.x0, coord.y0, textWidth + 3, textHeight + 3);
   // tCtx.rect(coord.x0, 0, XFactor * width, 700);
   tCtx.stroke();
-  tCtx.textAlign = 'center';
-  tCtx.font=`${ YFactor * fontSize * scaleFActor }px ${fontFamily}`;
+  tCtx.textAlign = 'left';
+  tCtx.font=`${ YFactor * fontSize }px ${fontFamily}`;
 
-  console.log(text, ' coord.x =',  coord.x, 'height =', height, ' font =', YFactor * fontSize * scaleFActor, ' YFactor=', YFactor, 'scaleFActor=', scaleFActor);
+  console.log(text, ' coord.x =',  coord.x, 'textHeight =', textHeight, ' font =', YFactor * fontSize * scaleFActor, ' YFactor=', YFactor, 'scaleFActor=', scaleFActor);
 
-  tCtx.fillText(text, coord.x, (height + 3), XFactor * width);
-  tCtx.strokeText(text, coord.x, (height + 3), XFactor * width);
+  tCtx.fillText(text, coord.x0, (textHeight + 3), XFactor * width);
+  tCtx.strokeText(text, coord.x0, (textHeight + 3), XFactor * width);
+
+  const amplitude = distortion * YFactor;
 
   if (distortion !== 0 ) {
-    // const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width+6, height + 6 * Math.abs(YFactor * distortion) );
-    // const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude: scaleFActor * YFactor * distortion, curve: x => x * x});
-    const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width+6, tCtxHeight );
-    const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude:  distortion / (tCtxHeight/ctxHeight), curve: x => x * x});
-
+    // const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, textWidth+6+3+3, textHeight+6+3 + 3 );
+    const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width / scaleFActor+6+3+3, textHeight+6+3 + 3 );
+    const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude, curve: x => x * x});
     tCtx.putImageData(scaledImageData, coord.x0-3, coord.y0-3);
   }
 
@@ -98,12 +89,14 @@ export default function(
   return new Promise(resolve => {
     img.onload = function (){
       ctx.drawImage(img,
-        0, 0 - YFactor * offsetTop * scaleFActor,
+        // 0, 0 - YFactor * offsetTop * scaleFActor,
+        0, 0,
         // ctxWidth, height + 2* Math.abs(YFactor/scaleFActor * distortion) + YFactor * offsetTop,
-        tCtxWidth, tCtxHeight,
+        width * XFactor / scaleFActor + 6 + 3, textHeight + 6 + 3 + 2 * Math.abs(amplitude),
+        // tCtxWidth, tCtxHeight,
         // tCtxWidth, height,
         0, 0,
-        ctxWidth, ctxHeight
+        width * XFactor, textHeight + 2 * Math.abs(amplitude)
         // ctxWidth, (textHeight + 2 * Math.abs(YFactor/scaleFActor * distortion) + YFactor * offsetTop)
         // ctxWidth, (textHeight + 2 * Math.abs(YFactor/scaleFActor * distortion) + YFactor * offsetTop) * tCtxHeight/ctxHeight
       );
