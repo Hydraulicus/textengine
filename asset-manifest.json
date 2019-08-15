@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/textengine/static/css/main.e031ad6f.chunk.css",
+    "main.css": "/textengine/static/css/main.38649642.chunk.css",
     "main.js": "/textengine/static/js/main.e3b61679.chunk.js",
     "main.js.map": "/textengine/static/js/main.e3b61679.chunk.js.map",
     "runtime~main.js": "/textengine/static/js/runtime~main.c48e5de5.js",
@@ -8,9 +8,9 @@
     "static/js/2.8ebf409a.chunk.js": "/textengine/static/js/2.8ebf409a.chunk.js",
     "static/js/2.8ebf409a.chunk.js.map": "/textengine/static/js/2.8ebf409a.chunk.js.map",
     "index.html": "/textengine/index.html",
-    "precache-manifest.981854336f5b904787376784240786e3.js": "/textengine/precache-manifest.981854336f5b904787376784240786e3.js",
+    "precache-manifest.cf6935b6b4c680a33bc267454b53dae0.js": "/textengine/precache-manifest.cf6935b6b4c680a33bc267454b53dae0.js",
     "service-worker.js": "/textengine/service-worker.js",
-    "static/css/main.e031ad6f.chunk.css.map": "/textengine/static/css/main.e031ad6f.chunk.css.map",
+    "static/css/main.38649642.chunk.css.map": "/textengine/static/css/main.38649642.chunk.css.map",
     "static/media/Index.module.scss": "/textengine/static/media/PirataOne-Regular.a4fe72b9.ttf",
     "static/media/elephant.svg": "/textengine/static/media/elephant.43105bae.svg",
     "static/media/horse.svg": "/textengine/static/media/horse.aa2e0ee6.svg",
