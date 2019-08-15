@@ -15,8 +15,7 @@ const initialProps = {
     {
       id: 'topText',
       label: 'top text',
-      // text: 'TOP STRING',
-      text: 'IJWQWWWWW',
+      text: 'TOP STRING',
       fontSize: 1000,
       width: 3200,
       offsetTop: 100,
@@ -31,7 +30,7 @@ const initialProps = {
       text: 'BOTTOM STRING',
       fontSize: 900,
       width: 3200,
-      offsetTop: 2300,
+      offsetTop: 2200,
       lineWidth: 6,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',

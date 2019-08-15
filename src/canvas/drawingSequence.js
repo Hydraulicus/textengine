@@ -20,14 +20,14 @@ export default async function (ctx, tCtx, props) {
       ...props.texts[0],
     }
   );
-  // await DrawText(
-  //   {
-  //     ctx,
-  //     tCtx,
-  //     fontFamily,
-  //     ...props.texts[1],
-  //   }
-  // );
+  await DrawText(
+    {
+      ctx,
+      tCtx,
+      fontFamily,
+      ...props.texts[1],
+    }
+  );
 
   return new Promise(resolve => {
     ctx.restore();
