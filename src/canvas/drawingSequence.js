@@ -7,16 +7,11 @@ export default async function (ctx, tCtx, props) {
   ctx.fillStyle = '#fff';
   ctx.save();
 
-  await DrawImage({
-    ctx,
-    id: props.mascot
-  });
 
   await DrawText(
     {
       ctx,
       tCtx,
-      fontFamily,
       ...props.texts[0],
     }
   );
@@ -24,10 +19,13 @@ export default async function (ctx, tCtx, props) {
     {
       ctx,
       tCtx,
-      fontFamily,
       ...props.texts[1],
     }
   );
+  await DrawImage({
+    ctx,
+    id: props.mascot
+  });
 
   return new Promise(resolve => {
     ctx.restore();

@@ -7,6 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import {fonts} from './../../assets'
 
+const maxStringSize = 30;
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(1, 2),
@@ -19,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: '15rem',
+    width: '12rem',
     fontFamily: 'AtomicAge'
   },
   colorPicker: {
@@ -37,15 +39,15 @@ export default function ({eventHandler, props}) {
   const { texts } = props;
   const classes = useStyles();
 
-  const handleChange = name => event => {
-    eventHandler({ [name]: event.target.value });
-  };
-
   const handleChangeTextsProp = (idx, name) => event => {
+    const { value } = event.target;
+
+    if ( name === 'text' &&  value.length > maxStringSize) return;
+
     const newTexts = texts;
     newTexts[idx] =  {
       ...texts[idx],
-      text: (event.target.value).toUpperCase(),
+      [name]: value.toUpperCase(),
     };
     eventHandler({
       texts: newTexts
@@ -66,38 +68,37 @@ export default function ({eventHandler, props}) {
 
   return <Fragment>
     <h3 style={{fontFamily: props.fontFamily}} >Please select options</h3>
-    <TextField
-      id='standard-select-currency-native'
-      select
-      label='Select font'
-      className={classes.textField}
-      value={props.fontFamily}
-      onChange={handleChange('fontFamily')}
-      SelectProps={{
-        native: true,
-        MenuProps: {
-          className: classes.menu,
-        },
-      }}
-      helperText='Please select font'
-      margin='normal'
-    >
-      {fonts.map(option => (
-        <option key={option.value} value={option.value}  style={{fontFamily: option.value}}>
-          {option.label}
-        </option>
-      ))}
-    </TextField>
-
-
     { texts.map( (textItem, idx) => <Paper className={classes.root} key={textItem.id}>
       <TextField
         id={textItem.id}
-        label={textItem.label}
+        label={`${textItem.label} ${textItem.text.length} / ${maxStringSize}`}
         defaultValue={textItem.text}
         onChange={handleChangeTextsProp(idx, 'text')}
         className={classNames(classes.textField, classes.dense)}
       />
+      <TextField
+        id='standard-select-currency-native'
+        select
+        label='Select font'
+        className={classes.textField}
+        value={props.fontFamily}
+        onChange={handleChangeTextsProp(idx, 'fontFamily')}
+        SelectProps={{
+          native: true,
+          MenuProps: {
+            className: classes.menu,
+          },
+        }}
+        helperText='Please select font'
+        margin='normal'
+      >
+        {fonts.map(option => (
+          <option key={option.value} value={option.value}  style={{fontFamily: option.value}}>
+            {option.label}
+          </option>
+        ))}
+      </TextField>
+
       <Grid container justify="center" spacing={3}>
         <Grid item xs={5}>
           <ColorPicker

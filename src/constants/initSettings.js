@@ -10,15 +10,15 @@ const LQSize = {
 
 
 const initialProps = {
-  fontFamily: 'AtomicAge',
   texts: [
     {
       id: 'topText',
       label: 'top text',
-      text: 'TOP STRING',
+      fontFamily: 'AtomicAge',
       fontSize: 1000,
+      text: 'TOP STRING',
       width: 3200,
-      offsetTop: 100,
+      offsetTop: 50,
       lineWidth: 6,
       fillStyle: '#c35',
       strokeStyle : '#226',
@@ -27,10 +27,11 @@ const initialProps = {
     {
       id: 'bottomText',
       label: 'bottom text',
-      text: 'BOTTOM STRING',
+      fontFamily: 'AtomicAge',
       fontSize: 900,
+      text: 'BOTTOM STRING',
       width: 3200,
-      offsetTop: 2200,
+      offsetTop: 2300,
       lineWidth: 6,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
