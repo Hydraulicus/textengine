@@ -1,4 +1,5 @@
 import logos from './logos'
+import icons from './icons'
 
 const fonts = [
   {
@@ -42,4 +43,4 @@ const fonts = [
     label: 'Teko',
   },
 ];
-export {fonts, logos}
+export {fonts, logos, icons}

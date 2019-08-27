@@ -31,8 +31,8 @@ export default function(
   const YFactor = ctxHeight / designedHeight;
   const leftPadding = (designedWidth - width) * XFactor / 2;
 
-  ctx.fillStyle = 'rgba(10,0,0, 0.05)';
-  ctx.fillRect(0,0, ctxWidth, ctxHeight);
+  // ctx.fillStyle = 'rgba(10,0,0, 0.05)';
+  // ctx.fillRect(0,0, ctxWidth, ctxHeight);
 
   /* detect scale factor to fit short text into box width */
   const {width: textWidth, height: textHeight, yOffset} = textMeasurer({
@@ -41,6 +41,7 @@ export default function(
     fontFamily
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
+  console.log('fontFamily=', fontFamily, 'fontSize=', fontSize, 'yOffset=', yOffset);
   // const scale_Y_FActor = ( YFactor * fontSize / textHeight > 1 ) ? YFactor * fontSize / textHeight : 1;
   // const renderFontSize = YFactor * fontSize * scaleFActor;
   // console.log( 'scale_Y_FActor =', scale_Y_FActor, 'scaleFActor =', scaleFActor);

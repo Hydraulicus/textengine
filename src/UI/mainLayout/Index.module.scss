@@ -1,0 +1,22 @@
+//@import './constants/index.scss';
+
+//@import './constants/fonts';
+
+.canvases {
+  width: 720px;
+  height: 720px;
+
+  display: block;
+  margin: 0.5rem auto;
+}
+
+.canvaContainer {
+  width: 100%;
+}
+
+.serviceCanvas {
+  position: absolute;
+  //display: none;
+  //border: 3px black dashed;
+}
+

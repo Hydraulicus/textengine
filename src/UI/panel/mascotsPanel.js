@@ -1,10 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
 import mascots from './../../assets/logos'
 
 const useStyles = makeStyles(theme => ({
@@ -13,24 +11,25 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
   },
   gridList: {
     cursor: 'pointer',
     textTransform: 'capitalize',
-    width: 500,
-    height: 450,
+    width: 450,
+    // height: 450,
+    // padding: '50px 30px',
   },
-  icon: {
-    color: 'gray',
-    backgroundColor: 'rgba(255, 255, 255, 0.54)',
-    borderRadius: '50%',
-    width: '1.2rem',
-    height: '1.2rem',
-    marginRight: '1rem'
+  gridListTile: {
   },
   info: {
     fontSize: '0.5rem'
+  },
+  mascotImg: {
+    height: '120px',
+    width: '120px',
+    border: '#555 2px solid',
+    borderRadius: '5px',
   }
 }));
 
@@ -61,27 +60,22 @@ const tileData = [
 export default function ({eventHandler}) {
   const classes = useStyles();
 
+
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Please choose mascot</ListSubheader>
-        </GridListTile>
+
+      <Typography variant="h6" className={classes.title} color="primary">
+        Please choose mascot
+      </Typography>
+
+      <GridList cellHeight={150} spacing={3} cols={3} className={classes.gridList} >
         {tileData.map(tile => (
-          <GridListTile key={tile.img} >
+          <GridListTile key={tile.img} className={classes.gridListTile}>
             <img
+              className={classes.mascotImg}
               src={tile.img}
               alt={tile.title}
               onClick={ e => { eventHandler({mascot: e.target.alt}) } }
-            />
-            <GridListTileBar
-              title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
-              actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                    <span className={classes.info}>i</span>
-                </IconButton>
-              }
             />
           </GridListTile>
         ))}
