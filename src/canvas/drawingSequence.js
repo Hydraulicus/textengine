@@ -22,8 +22,8 @@ export default async function (ctx, tCtx, props) {
       ctx,
       tCtx,
       ...props.texts[1],
-      outline1: {color: '#f00', lineWidth: 10 } ,
-      outline2: {color: '#ff0', lineWidth: 10 },
+      outline1: {color: '#f00', lineWidth: 26 } ,
+      outline2: {color: '#ff0', lineWidth: 26 },
     }
   );
 
@@ -57,12 +57,17 @@ function outlined(wrappedComp, props) {
       color: strokeStyle = '#00f',
       lineWidth: lineWidthOuter
     },
+
+    distortion,
     fontSize,
-    offsetTop
+    offsetTop,
+    width,
   } = props;
 
   const newFontSize = fontSize + lineWidthInside + lineWidthOuter;
-  const newOffsetTop = offsetTop - lineWidthInside;
+  const newOffsetTop = offsetTop - lineWidthInside - lineWidthOuter;
+  const newWidth = width + 2 * lineWidthInside + 2 * lineWidthOuter;
+  const newDistortion = distortion - lineWidthInside - lineWidthOuter;
 
   const newProps = {
     ...props,
@@ -70,7 +75,8 @@ function outlined(wrappedComp, props) {
     strokeStyle,
     fontSize: newFontSize,
     lineWidth: lineWidthOuter,
-    offsetTop: newOffsetTop
+    offsetTop: newOffsetTop,
+    width: newWidth
   };
 
   return wrappedComp(newProps)
