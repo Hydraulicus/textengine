@@ -1,16 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { saveAs } from 'file-saver';
-import { HQSize, LQSize } from './../constants/initSettings';
+import { HQSize } from './../constants/initSettings';
 import draw from './drawingSequence'
 
 export function usePersistentState(init) {
-  const [props, setProps] = useState({
-      ...JSON.parse(localStorage.getItem('draw-app')),  ...init
-    }
-  );
+  const [props, setProps] = useState(init);
 
   useEffect(() => {
-    localStorage.setItem('draw-app', JSON.stringify(props))
+    // localStorage.setItem('draw-app', JSON.stringify(props))
+    console.log('props changed', props)
   });
   return [props, setProps]
 }

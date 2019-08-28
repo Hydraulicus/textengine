@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function MainLayout({HQSize, initialProps}) {
-  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...initialProps});
+function MainLayout({HQSize, ...theRestInitProps}) {
+  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...theRestInitProps});
 
   function eventHandler(e) {
     // console.log('eventHandler', e);
