@@ -8,7 +8,7 @@ export function usePersistentState(init) {
 
   useEffect(() => {
     // localStorage.setItem('draw-app', JSON.stringify(props))
-    console.log('props changed', props)
+    // console.log('props changed', props)
   });
   return [props, setProps]
 }
