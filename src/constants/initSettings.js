@@ -10,7 +10,7 @@ const LQSize = {
 
 
 const initialProps = {
-  outline: { color: '#ff0', lineWidth: 26 },
+  outline: { color: '#ff0', lineWidth: 66 },
   texts: [
     {
       id: 'topText',
@@ -20,7 +20,7 @@ const initialProps = {
       text: 'TOP STRING',
       width: 3200,
       offsetTop: 50,
-      lineWidth: 6,
+      lineWidth: 26,
       fillStyle: '#c35',
       strokeStyle : '#226',
       distortion: 500,
@@ -33,7 +33,7 @@ const initialProps = {
       text: 'BOTTOM STRING',
       width: 3200,
       offsetTop: 2300,
-      lineWidth: 6,
+      lineWidth: 26,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
       distortion: -100,

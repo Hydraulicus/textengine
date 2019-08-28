@@ -15,7 +15,6 @@ function App() {
     : <span style={{fontFamily: 'Arvo'}}>Loading...</span>;
 
   useEffect(() => {
-    console.log('mounted');
     setIsMounted(true)
   } , []);
 

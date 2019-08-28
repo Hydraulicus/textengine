@@ -29,54 +29,62 @@ export default function(
   // const { width: tCtxWidth, height: tCtxHeight } = tCtx.canvas;
   const XFactor = ctxWidth / designedWidth;
   const YFactor = ctxHeight / designedHeight;
+  const OFactor = Math.sqrt(XFactor * XFactor + YFactor * YFactor);
+
+
   const leftPadding = (designedWidth - width) * XFactor / 2;
 
   // ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   // ctx.fillRect(0,0, ctxWidth, ctxHeight);
 
   /* detect scale factor to fit short text into box width */
-  const {width: textWidth, height: textHeight, yOffset} = textMeasurer({
+  const {
+    width: textWidth, height: textHeight,
+    // yOffset
+  } = textMeasurer({
     text,
     fontSize: `${YFactor * fontSize}px`,
     fontFamily
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
-  console.log('fontFamily=', fontFamily, 'fontSize=', fontSize, 'yOffset=', yOffset);
-  // const scale_Y_FActor = ( YFactor * fontSize / textHeight > 1 ) ? YFactor * fontSize / textHeight : 1;
-  // const renderFontSize = YFactor * fontSize * scaleFActor;
-  // console.log( 'scale_Y_FActor =', scale_Y_FActor, 'scaleFActor =', scaleFActor);
-  // console.log( XFactor * width / scaleFActor, textHeight, ' textWidth = ', textWidth, scaleFActor, 'renderFontSize =', renderFontSize);
+  const scaledLineW = YFactor / scaleFActor * lineWidth / 2;
+  // console.log('lineWidth=', lineWidth, 'offsetTop=', offsetTop, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, 'yOffset=', yOffset);
+
+  const relativeSize = {
+    w: XFactor / scaleFActor * width,
+    h: textHeight
+  };
 
   const coord = {
-    x0: 0 + 3,
-    y0: 0 + 3,
-    x: textWidth + 6,
-    y: textHeight + 6,
+    x0: 0,
+    y0: scaledLineW,
+    x: relativeSize.w,
+    y: relativeSize.h,
   };
 
   // tCtx.textBaseline = 'bottom';
   tCtx.strokeStyle = strokeStyle;
   tCtx.fillStyle = fillStyle;
-  tCtx.lineWidth = lineWidth;
 
   /****** DRAW BOUNDARY OF THE TEXT ******/
-  // tCtx.rect(coord.x0, coord.y0,  width * XFactor / scaleFActor + 3, textHeight + 3);
+  // tCtx.lineWidth = 1;
+  // tCtx.strokeRect(coord.x0, coord.y0 + 1, coord.x-1, textHeight + scaledLineW);
 
-  tCtx.stroke();
+  tCtx.lineWidth = OFactor / scaleFActor * lineWidth;
   tCtx.textAlign = 'left';
   tCtx.font=`${ YFactor * fontSize }px ${fontFamily}`;
 
-  // console.log(text, ' coord.x =',  coord.x, 'textHeight =', textHeight, ' font =', YFactor * fontSize * scaleFActor, ' YFactor=', YFactor, 'scaleFActor=', scaleFActor);
-
-  tCtx.fillText(text, coord.x0, (textHeight + 3), XFactor * width);
-  tCtx.strokeText(text, coord.x0, (textHeight + 3), XFactor * width);
+  tCtx.fillText(text, coord.x0, (textHeight + scaledLineW ), XFactor * width);
+  tCtx.strokeText(text, coord.x0, (textHeight + scaledLineW ), XFactor * width);
 
   const amplitude = distortion * YFactor;
-
   if (distortion !== 0 ) {
-    const imageData = tCtx.getImageData(coord.x0-3, coord.y0-3, XFactor * width / scaleFActor+6+3+3, textHeight+6+3 + 3 );
+    const imageData = tCtx.getImageData(
+      0, 0,
+      relativeSize.w, relativeSize.h + Math.abs(amplitude)
+    );
     const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude, curve: x => x * x});
-    tCtx.putImageData(scaledImageData, coord.x0-3, coord.y0-3);
+    tCtx.putImageData(scaledImageData, coord.x0, 0);
   }
 
   const img = new Image();
@@ -87,13 +95,12 @@ export default function(
     img.onload = function (){
       ctx.drawImage(img,
         0, 0,
-        width * XFactor / scaleFActor + 6 + 3, textHeight + 6 + 3 + 2 * Math.abs(amplitude),
+        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude),
         leftPadding, offsetTop * YFactor,
         width * XFactor, textHeight + 2 * Math.abs(amplitude)
       );
       resolve('drown')
     };
   });
-
 }
 

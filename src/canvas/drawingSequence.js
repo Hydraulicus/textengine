@@ -6,13 +6,13 @@ export default async function (ctx, tCtx, props) {
   ctx.fillStyle = '#fff';
   ctx.save();
 
-  // await DrawText(
-  //   {
-  //     ctx,
-  //     tCtx,
-  //     ...props.texts[0],
-  //   }
-  // );
+  await DrawText(
+    {
+      ctx,
+      tCtx,
+      ...props.texts[0],
+    }
+  );
 
   /* draw outlined BOTTOM text*/
   await outlined(DrawText,
@@ -20,7 +20,7 @@ export default async function (ctx, tCtx, props) {
       ctx,
       tCtx,
       ...props.texts[1],
-      outline:  { color: '#990', lineWidth: 26 },
+      outline:  { color: '#990', lineWidth: 36 },
     }
   );
 
@@ -51,13 +51,15 @@ function outlined(wrappedComp, props) {
       lineWidth = 26
     } ,
     offsetTop,
+    lineWidth: textLineWidth
   } = props;
   const newOffsetTop = offsetTop - lineWidth / 2;
+  const newLineWidth = lineWidth + textLineWidth;
   const newProps = {
     ...props,
     fillStyle: color,
     strokeStyle: color,
-    lineWidth: lineWidth,
+    lineWidth: newLineWidth,
     offsetTop: newOffsetTop,
   };
 
