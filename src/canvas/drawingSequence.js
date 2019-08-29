@@ -1,5 +1,6 @@
 import DrawText from './drawTextV2'
 import DrawImage from './drawImage'
+import DrawImageOutline from './drawImageOutline'
 
 export default async function (ctx, tCtx, props) {
 
@@ -20,13 +21,22 @@ export default async function (ctx, tCtx, props) {
       ctx,
       tCtx,
       ...props.texts[1],
-      outline:  { color: '#990', lineWidth: 36 },
+      outline: { color: '#990', lineWidth: 66 },
     }
   );
 
+  await DrawImageOutline({
+    ctx,
+    id: props.mascot,
+    outline: {
+      color: '#990',
+      lineWidth: 46
+    },
+  });
+
   await DrawImage({
     ctx,
-    id: props.mascot
+    id: props.mascot,
   });
 
   /* draw BOTTOM text*/

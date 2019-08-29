@@ -1,4 +1,4 @@
-import elephant from './fullSize/elephantOutlined.svg';
+import elephant from './fullSize/elephant.svg';
 import horse from './fullSize/horse.svg';
 import react from './fullSize/react.svg';
 import rooster from './fullSize/rooster.svg';

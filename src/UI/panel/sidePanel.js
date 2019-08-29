@@ -74,7 +74,6 @@ export default function ({eventHandler, props}) {
   };
 
   const checkBox = (textItem) => {
-    console.log(textItem.visible, textItem)
     return <Checkbox
     color="default"
     checked={textItem.visible}
