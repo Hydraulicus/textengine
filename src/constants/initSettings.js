@@ -10,7 +10,7 @@ const LQSize = {
 
 
 const initialProps = {
-  outline: { color: '#ff0', lineWidth: 66 },
+  outline: {show: true, color: '#aa2', lineWidth: 60 },
   texts: [
     {
       id: 'topText',

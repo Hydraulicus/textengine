@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
 export default function ({eventHandler, props}) {
   const {
     texts,
+    outline,
   } = props;
   const classes = useStyles();
 
@@ -73,9 +74,32 @@ export default function ({eventHandler, props}) {
     });
   };
 
+  const handleChangeOutlineProp = name => color => {
+    const newOutline = {
+      ...outline,
+      [name]: color
+    };
+    eventHandler({
+      outline: newOutline
+    });
+  };
+
+  const handleCheckBoxChange = name => event => {
+    let { checked } = event.target;
+
+    const newOutline = {
+      ...outline,
+      [name]: checked
+    };
+
+    eventHandler({
+      outline: newOutline
+    });
+  };
+
   const checkBox = (textItem) => {
     return <Checkbox
-    color="default"
+    color='default'
     checked={textItem.visible}
     inputProps={{
       'aria-label': 'checkbox with default color',
@@ -91,15 +115,15 @@ export default function ({eventHandler, props}) {
           defaultValue={textItem.text}
           onChange={handleChangeTextsProp(idx, 'text')}
           className={classNames(classes.textField, classes.dense)}
-          variant="outlined"
+          variant='outlined'
           InputProps={{
-            startAdornment: <InputAdornment position="start">{checkBox(textItem)}</InputAdornment>,
+            startAdornment: <InputAdornment position='start'>{checkBox(textItem)}</InputAdornment>,
           }}
         />
         <TextField
           id='standard-select-currency-native'
           select
-          variant="outlined"
+          variant='outlined'
 
           label='Select font'
           className={classNames(classes.margin, classes.textField)}
@@ -121,7 +145,7 @@ export default function ({eventHandler, props}) {
           ))}
         </TextField>
 
-        <Grid container justify="center" spacing={3}>
+        <Grid container justify='center' spacing={3}>
           <Grid item xs={5}>
             <ColorPicker
               name='color'
@@ -142,6 +166,28 @@ export default function ({eventHandler, props}) {
       </Paper>
     )
     }
+
+    <h3>Please define outline props</h3>
+
+    <Grid container justify='center' spacing={3}>
+      <Grid item xs={2}>
+        <Checkbox
+          color='default'
+          checked={outline.show}
+          onChange={handleCheckBoxChange('show')}
+          value={outline.show}
+          inputProps={{ 'aria-label': 'show' }}
+        />
+      </Grid>
+      <Grid item xs={4}>
+        <ColorPicker
+          name='outlineColor'
+          label={`color`}
+          value={outline.color}
+          onChange={handleChangeOutlineProp('color')}
+        />
+      </Grid>
+    </Grid>
   </Fragment>
 
 }
