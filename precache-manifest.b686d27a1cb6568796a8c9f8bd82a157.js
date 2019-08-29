@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b860e472f311f3d95d7ddef853fdd73b",
+    "revision": "a83c6f945950c2c9b5a0cf259dfb7d6f",
     "url": "/textengine/index.html"
   },
   {
-    "revision": "ee9ca8dab435717e3b60",
+    "revision": "c3f572792d8f4e51c82a",
     "url": "/textengine/static/css/main.fffd61a9.chunk.css"
   },
   {
-    "revision": "3bb1cf91f1db50d2b38d",
-    "url": "/textengine/static/js/2.2ccb0c92.chunk.js"
+    "revision": "519eb73b0d99192afb31",
+    "url": "/textengine/static/js/2.8b511f0b.chunk.js"
   },
   {
-    "revision": "ee9ca8dab435717e3b60",
-    "url": "/textengine/static/js/main.bce4fb68.chunk.js"
+    "revision": "c3f572792d8f4e51c82a",
+    "url": "/textengine/static/js/main.ceb0c544.chunk.js"
   },
   {
     "revision": "a43c7345ef17ffb6d993",
@@ -56,8 +56,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/textengine/static/media/PirataOne-Regular.a4fe72b9.ttf"
   },
   {
-    "revision": "43105bae51e0f9422c5fa056f6500cda",
-    "url": "/textengine/static/media/elephant.43105bae.svg"
+    "revision": "b511dc28299e569496d521eee98ddf01",
+    "url": "/textengine/static/media/elephant.b511dc28.svg"
   },
   {
     "revision": "aa2e0ee6166f38cf06e4bdf1a5cb2d04",
