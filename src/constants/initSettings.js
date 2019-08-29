@@ -24,6 +24,7 @@ const initialProps = {
       fillStyle: '#c35',
       strokeStyle : '#226',
       distortion: 500,
+      visible: true
     },
     {
       id: 'bottomText',
@@ -37,6 +38,7 @@ const initialProps = {
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
       distortion: -100,
+      visible: true
     },
   ],
   saveHQ: false,

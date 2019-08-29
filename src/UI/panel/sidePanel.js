@@ -73,14 +73,15 @@ export default function ({eventHandler, props}) {
     });
   };
 
-  const checkBox = <Checkbox
-    defaultChecked
+  const checkBox = (textItem) => {
+    console.log(textItem.visible, textItem)
+    return <Checkbox
     color="default"
-    value="checkedG"
+    checked={textItem.visible}
     inputProps={{
       'aria-label': 'checkbox with default color',
     }}
-  />;
+  />};
 
   return <Fragment>
     <h3 style={{fontFamily: props.fontFamily}} >Please select options</h3>
@@ -93,7 +94,7 @@ export default function ({eventHandler, props}) {
           className={classNames(classes.textField, classes.dense)}
           variant="outlined"
           InputProps={{
-            startAdornment: <InputAdornment position="start">{checkBox}</InputAdornment>,
+            startAdornment: <InputAdornment position="start">{checkBox(textItem)}</InputAdornment>,
           }}
         />
         <TextField
