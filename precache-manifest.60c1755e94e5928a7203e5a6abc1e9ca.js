@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "01537e23531d977b0547472e84fd383a",
+    "revision": "ce1945cd19df873d0343901b39ae79b3",
     "url": "/textengine/index.html"
   },
   {
-    "revision": "6ce4da08a4ed777558dd",
+    "revision": "d885a985c22ed63eb651",
     "url": "/textengine/static/css/main.fffd61a9.chunk.css"
   },
   {
-    "revision": "519eb73b0d99192afb31",
-    "url": "/textengine/static/js/2.8b511f0b.chunk.js"
+    "revision": "f81ea3c9b39018426c07",
+    "url": "/textengine/static/js/2.413b810e.chunk.js"
   },
   {
-    "revision": "6ce4da08a4ed777558dd",
-    "url": "/textengine/static/js/main.459f4943.chunk.js"
+    "revision": "d885a985c22ed63eb651",
+    "url": "/textengine/static/js/main.5efeafc4.chunk.js"
   },
   {
     "revision": "a43c7345ef17ffb6d993",
@@ -56,19 +56,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/textengine/static/media/PirataOne-Regular.a4fe72b9.ttf"
   },
   {
-    "revision": "b511dc28299e569496d521eee98ddf01",
-    "url": "/textengine/static/media/elephant.b511dc28.svg"
+    "revision": "217a2486be9c1fcf8fd19e96823fea83",
+    "url": "/textengine/static/media/elephant.217a2486.svg"
   },
   {
-    "revision": "aa2e0ee6166f38cf06e4bdf1a5cb2d04",
-    "url": "/textengine/static/media/horse.aa2e0ee6.svg"
+    "revision": "125f080723a2b45c31e24878153d3766",
+    "url": "/textengine/static/media/horse.125f0807.svg"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/textengine/static/media/react.5d5d9eef.svg"
+    "revision": "123a7b036bfab0a713f591899949e736",
+    "url": "/textengine/static/media/react.123a7b03.svg"
   },
   {
-    "revision": "0da0e3561f37bd5758de81008277505c",
-    "url": "/textengine/static/media/rooster.0da0e356.svg"
+    "revision": "8df9de73ccf51600d3bc2cdf0230cb66",
+    "url": "/textengine/static/media/rooster.8df9de73.svg"
   }
 ]);

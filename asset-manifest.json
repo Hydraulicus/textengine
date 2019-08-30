@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/textengine/static/css/main.fffd61a9.chunk.css",
-    "main.js": "/textengine/static/js/main.459f4943.chunk.js",
-    "main.js.map": "/textengine/static/js/main.459f4943.chunk.js.map",
+    "main.js": "/textengine/static/js/main.5efeafc4.chunk.js",
+    "main.js.map": "/textengine/static/js/main.5efeafc4.chunk.js.map",
     "runtime~main.js": "/textengine/static/js/runtime~main.c48e5de5.js",
     "runtime~main.js.map": "/textengine/static/js/runtime~main.c48e5de5.js.map",
-    "static/js/2.8b511f0b.chunk.js": "/textengine/static/js/2.8b511f0b.chunk.js",
-    "static/js/2.8b511f0b.chunk.js.map": "/textengine/static/js/2.8b511f0b.chunk.js.map",
+    "static/js/2.413b810e.chunk.js": "/textengine/static/js/2.413b810e.chunk.js",
+    "static/js/2.413b810e.chunk.js.map": "/textengine/static/js/2.413b810e.chunk.js.map",
     "index.html": "/textengine/index.html",
-    "precache-manifest.1aecadaae98b199169df334839e2979d.js": "/textengine/precache-manifest.1aecadaae98b199169df334839e2979d.js",
+    "precache-manifest.60c1755e94e5928a7203e5a6abc1e9ca.js": "/textengine/precache-manifest.60c1755e94e5928a7203e5a6abc1e9ca.js",
     "service-worker.js": "/textengine/service-worker.js",
     "static/css/main.fffd61a9.chunk.css.map": "/textengine/static/css/main.fffd61a9.chunk.css.map",
     "static/media/Index.module.scss": "/textengine/static/media/PirataOne-Regular.a4fe72b9.ttf",
-    "static/media/elephant.svg": "/textengine/static/media/elephant.b511dc28.svg",
-    "static/media/horse.svg": "/textengine/static/media/horse.aa2e0ee6.svg",
-    "static/media/react.svg": "/textengine/static/media/react.5d5d9eef.svg",
-    "static/media/rooster.svg": "/textengine/static/media/rooster.0da0e356.svg"
+    "static/media/elephant.svg": "/textengine/static/media/elephant.217a2486.svg",
+    "static/media/horse.svg": "/textengine/static/media/horse.125f0807.svg",
+    "static/media/react.svg": "/textengine/static/media/react.123a7b03.svg",
+    "static/media/rooster.svg": "/textengine/static/media/rooster.8df9de73.svg"
   }
 }
