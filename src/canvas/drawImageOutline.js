@@ -2,6 +2,10 @@ import _ from 'lodash'
 // import {getSVGImage} from './../utils/loadFile'
 import {getJSONSVGImage} from './../utils/loadFile'
 
+const deepFind = (JSONArray, keyPath, keyValue) => _.find(
+  JSONArray, _.matchesProperty(keyPath, keyValue)
+)
+
 export default async function (
   {
     ctx,
@@ -14,10 +18,16 @@ export default async function (
 ) {
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
 
-  const JSONSVGImage = await getJSONSVGImage(`/JSONS/${id}.json`);
-  const outlineTag = _.findKey( JSONSVGImage.svg, {'-id': 'OUTLINE'} );
-  const outLineViewBox = JSONSVGImage.svg['-viewBox'];
-  const outLineD = JSONSVGImage.svg[outlineTag]['-d'];
+  const JSONSVGImage = await getJSONSVGImage(`/JSONS/_${id}.json`);
+
+  console.log(JSONSVGImage);
+  const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
+  console.log(outLineViewBox);
+
+  const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
+
+  const outLineD = outlineTag.attributes.d;
+  console.log(outLineViewBox, JSONSVGImage.children, outlineTag);
 
   const outlineXML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${outLineViewBox}">
     <path id="OUTLINE" 
