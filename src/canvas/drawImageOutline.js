@@ -1,12 +1,21 @@
 import _ from 'lodash'
-// import {getSVGImage} from './../utils/loadFile'
 import {getJSONSVGImage} from './../utils/loadFile'
+import JSONS from './../assets/logos/'
 
 const deepFind = (JSONArray, keyPath, keyValue) => _.find(
   JSONArray, _.matchesProperty(keyPath, keyValue)
 );
 
-export default async function (
+async function getJSONfile(id) {
+  /* Loading JSON from external file*/
+  // const JSONSVG = await getJSONSVGImage(`/JSONS/_${id}.json`);
+  //
+  const JSONSVG = JSONS[`_${id}`];
+  // console.log(JSONSVG);
+  return JSONSVG
+}
+
+ const drawImageOutline = async function (
   {
     ctx,
     id = 'elephant',
@@ -18,7 +27,7 @@ export default async function (
 ) {
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
 
-  const JSONSVGImage = await getJSONSVGImage(`/JSONS/_${id}.json`);
+  const JSONSVGImage = await getJSONfile(id);
   const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
   const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
   const outLineD = outlineTag.attributes.d;
@@ -43,6 +52,8 @@ export default async function (
   });
 }
 
+
+// import {getSVGImage} from './../utils/loadFile'
 // export default async function (
 //   {
 //     ctx,
@@ -82,3 +93,5 @@ export default async function (
 //   let p = new Path2D(outLineD);
 //   ctx.fill(p);
 // }
+
+export default drawImageOutline;

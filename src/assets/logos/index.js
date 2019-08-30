@@ -1,6 +1,18 @@
 import elephant from './fullSize/elephant.svg';
-import horse from './fullSize/horse.svg';
-import react from './fullSize/react.svg';
-import rooster from './fullSize/rooster.svg';
+import _elephant from './JSONS/_elephant.json';
 
-export default  {elephant, horse, react, rooster}
+import horse from './fullSize/horse.svg';
+import _horse from './JSONS/_horse.json';
+
+import react from './fullSize/react.svg';
+import _react from './JSONS/_react.json';
+
+import rooster from './fullSize/rooster.svg';
+import _rooster from './JSONS/_rooster.json';
+
+export default  {
+  elephant, _elephant,
+  horse, _horse,
+  react, _react,
+  rooster, _rooster
+}

@@ -17,10 +17,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/",
+    "build": "npm run svg2json && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./public/JSONS/"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
