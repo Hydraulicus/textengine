@@ -4,7 +4,7 @@ import {getJSONSVGImage} from './../utils/loadFile'
 
 const deepFind = (JSONArray, keyPath, keyValue) => _.find(
   JSONArray, _.matchesProperty(keyPath, keyValue)
-)
+);
 
 export default async function (
   {
@@ -12,28 +12,24 @@ export default async function (
     id = 'elephant',
     outline: {
       color = '#ff0',
-      lineWidth = 66
+      lineWidth = 40
     }
   }
 ) {
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
 
   const JSONSVGImage = await getJSONSVGImage(`/JSONS/_${id}.json`);
-
-  console.log(JSONSVGImage);
   const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
-  console.log(outLineViewBox);
-
   const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
-
   const outLineD = outlineTag.attributes.d;
-  console.log(outLineViewBox, JSONSVGImage.children, outlineTag);
+  const outLineStrokeWidth = outlineTag.attributes['stroke-width'];
+  const strokeWidth = ( outLineStrokeWidth > 0 ) ? outLineStrokeWidth : lineWidth;
 
   const outlineXML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${outLineViewBox}">
     <path id="OUTLINE" 
     fill="${color}" 
     stroke="${color}" 
-    stroke-width="${lineWidth}"
+    stroke-width="${strokeWidth}"
     d="${outLineD}"/>
     </svg>`;
 
