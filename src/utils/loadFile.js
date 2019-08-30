@@ -36,7 +36,7 @@ export function getJSONSVGImage(fileName) {
   const defaults = {headers};
   // eslint-disable-next-line no-param-reassign
   options = Object.assign({}, defaults, options);
-  return fetch(options.url, options)
+  return fetch(process.env.PUBLIC_URL +options.url, options)
     .then(response =>
       response.json().then(json => {
         // console.log(response);
