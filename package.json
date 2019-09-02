@@ -17,7 +17,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/",
+    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/ && svgson ./src/assets/templates/SVG/ --separated --output ./src/assets/templates/JSONS/",
     "build": "npm run svg2json && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

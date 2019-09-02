@@ -47,7 +47,13 @@ export function getJSONSVGImage(fileName) {
         return json;
       })
     );
+}
 
-
-
+export async function getJSONfile(id, JSONS) {
+  /* Loading JSON from external file*/
+  // const JSONSVG = await getJSONSVGImage(`/JSONS/_${id}.json`);
+  //
+  const JSONSVG = JSONS[`_${id}`];
+  // console.log(JSONSVG);
+  return JSONSVG
 }
