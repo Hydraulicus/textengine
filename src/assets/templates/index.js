@@ -1,6 +1,6 @@
-import template1 from './SVG/master.svg';
-import _template1 from './JSONS/_master.svg';
+import template0 from './SVG/master.svg';
+import _template0 from './JSONS/_master.json';
 
 export default  {
-  template1, _template1
+  template0, _template0
 }

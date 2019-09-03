@@ -15,7 +15,7 @@ import JSONS from './../assets/logos/'
 
   const JSONSVGImage = await getJSONfile(id, JSONS);
   const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
-  const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
+    const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
   const outLineD = outlineTag.attributes.d;
   const outLineStrokeWidth = outlineTag.attributes['stroke-width'];
   const strokeWidth = ( outLineStrokeWidth > 0 ) ? outLineStrokeWidth : lineWidth;

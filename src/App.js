@@ -1,22 +1,29 @@
 import React, {Fragment, useEffect, useState} from 'react';
+import { loadInitialState } from './functionality'
 import { MainLayout } from './UI/'
-import {HQSize, initialProps} from './constants/initSettings';
+import {initialProps} from './constants/initSettings';
 import './Index.module.scss'
 import './App.css'
 
 function App() {
   const [isMounted, setIsMounted] = useState(false);
+  const [props, setProps] = useState(initialProps);
 
-  const content = isMounted
-      ? <MainLayout
-        HQSize={HQSize}
-        {...initialProps}
-      />
+  const content = (isMounted )
+    ? <MainLayout {...props} />
     : <span style={{fontFamily: 'Arvo'}}>Loading...</span>;
 
   useEffect(() => {
-    setIsMounted(true)
+    loadInitialState(props).then( p => {
+        setProps(p)
+        setIsMounted(true)
+      }
+    );
   } , []);
+
+  // useEffect(() => {
+  //   // console.log('LoadedTemplateState props', props);
+  // } , [props]);
 
   return (<Fragment>
       {content}

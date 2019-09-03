@@ -41,11 +41,16 @@ const initialProps = {
       visible: true
     },
   ],
+  mascots: {
+
+  },
   saveHQ: false,
   saveLQ: false,
   canva: {
     ...LQSize,
-  }
+  },
+  HQSize,
+  LQSize,
 };
 
 export {HQSize, LQSize, initialProps};

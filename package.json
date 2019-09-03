@@ -11,13 +11,16 @@
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "svgo": "^1.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/ && svgson ./src/assets/templates/SVG/ --separated --output ./src/assets/templates/JSONS/",
+    "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/ && svgson ./src/assets/templates/SVG/ --pretty --separated --output ./src/assets/templates/JSONS/",
+    "svgo": "svgo --folder=./src/assets/templates/SVG/ -o ./src/assets/templates/SVG-OPTIMIZED --config=./svgo.yml ",
+    "svg2js": "svgo --folder=./src/assets/templates/SVG/ -o ./src/assets/templates/SVG-OPTIMIZED --enable=svg2js",
     "build": "npm run svg2json && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

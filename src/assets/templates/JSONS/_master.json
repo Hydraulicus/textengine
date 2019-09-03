@@ -1,1 +1,189 @@
-{"name":"svg","type":"element","value":"","attributes":{"version":"1.1","baseProfile":"basic","id":"Layer_1","xmlns":"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink","x":"0px","y":"0px","viewBox":"0 0 3600 3600","xml:space":"preserve"},"children":[{"name":"g","type":"element","value":"","attributes":{"id":"TEMPLATE"},"children":[{"name":"g","type":"element","value":"","attributes":{"id":"TEXT_x5F_2"},"children":[{"name":"rect","type":"element","value":"","attributes":{"id":"BORDERS_1_","x":"300","y":"3000","fill":"none","stroke":"#0046D0","stroke-width":"10","stroke-miterlimit":"10","width":"3000","height":"400"},"children":[]},{"name":"text","type":"element","value":"","attributes":{"id":"UNIVERSITY","transform":"matrix(1 0 0 1 977.9014 3388.4814)","font-family":"'MyriadPro-Regular'","font-size":"300px"},"children":[{"name":"","type":"text","value":"Lorem ipsum","attributes":{},"children":[]}]}]},{"name":"g","type":"element","value":"","attributes":{"id":"TEXT_x5F_1"},"children":[{"name":"path","type":"element","value":"","attributes":{"id":"CONTENT_x5F_1_x5F_","fill":"none","d":"M300,1000c301.7-125.7,826.8-300,1500-300c326.8,0,878.6,41.1,1500,300"},"children":[]},{"name":"text","type":"element","value":"","attributes":{"id":"CONTENT"},"children":[{"name":"textPath","type":"element","value":"","attributes":{"xlink:href":"#CONTENT_x5F_1_x5F_","startOffset":"0%"},"children":[{"name":"tspan","type":"element","value":"","attributes":{"stroke":"#969696","stroke-width":"10","stroke-miterlimit":"10","font-family":"'MyriadPro-Regular'","font-size":"700px"},"children":[{"name":"","type":"text","value":"ST.JOHNS","attributes":{},"children":[]}]}]}]},{"name":"rect","type":"element","value":"","attributes":{"id":"BORDERS","x":"299.5","y":"200","fill":"none","stroke":"#6E7431","stroke-width":"10","stroke-miterlimit":"10","width":"3000.5","height":"499.5"},"children":[]},{"name":"rect","type":"element","value":"","attributes":{"id":"ARCBENDING","x":"299.5","y":"699.5","fill":"none","stroke":"#6E7431","stroke-width":"10","stroke-miterlimit":"10","width":"3001","height":"300"},"children":[]}]},{"name":"rect","type":"element","value":"","attributes":{"id":"MASCOTAREA","x":"600","y":"700","fill":"none","stroke":"#D06B00","stroke-width":"10","stroke-miterlimit":"10","width":"2400","height":"2400"},"children":[]}]}]}
+{
+    "name": "svg",
+    "type": "element",
+    "value": "",
+    "attributes": {
+        "version": "1.1",
+        "baseProfile": "basic",
+        "id": "Layer_1",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "x": "0px",
+        "y": "0px",
+        "viewBox": "0 0 3600 3600",
+        "xml:space": "preserve"
+    },
+    "children": [
+        {
+            "name": "g",
+            "type": "element",
+            "value": "",
+            "attributes": {
+                "id": "TEMPLATE"
+            },
+            "children": [
+                {
+                    "name": "g",
+                    "type": "element",
+                    "value": "",
+                    "attributes": {
+                        "id": "TEXT_x5F_2"
+                    },
+                    "children": [
+                        {
+                            "name": "rect",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "BORDERS_1_",
+                                "x": "300",
+                                "y": "3000",
+                                "fill": "none",
+                                "stroke": "#0046D0",
+                                "stroke-width": "10",
+                                "stroke-miterlimit": "10",
+                                "width": "3000",
+                                "height": "400"
+                            },
+                            "children": []
+                        },
+                        {
+                            "name": "text",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "UNIVERSITY",
+                                "transform": "matrix(1 0 0 1 977.9014 3388.4814)",
+                                "font-family": "'LilitaOne'",
+                                "font-size": "300px"
+                            },
+                            "children": [
+                                {
+                                    "name": "",
+                                    "type": "text",
+                                    "value": "Lorem ipsum",
+                                    "attributes": {},
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "g",
+                    "type": "element",
+                    "value": "",
+                    "attributes": {
+                        "id": "TEXT_x5F_1"
+                    },
+                    "children": [
+                        {
+                            "name": "path",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "CONTENT_x5F_1_x5F_",
+                                "fill": "none",
+                                "d": "M300,1000c301.7-125.7,826.8-300,1500-300c326.8,0,878.6,41.1,1500,300"
+                            },
+                            "children": []
+                        },
+                        {
+                            "name": "text",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "CONTENT"
+                            },
+                            "children": [
+                                {
+                                    "name": "textPath",
+                                    "type": "element",
+                                    "value": "",
+                                    "attributes": {
+                                        "xlink:href": "#CONTENT_x5F_1_x5F_",
+                                        "startOffset": "0%"
+                                    },
+                                    "children": [
+                                        {
+                                            "name": "tspan",
+                                            "type": "element",
+                                            "value": "",
+                                            "attributes": {
+                                                "stroke": "#969696",
+                                                "stroke-width": "10",
+                                                "stroke-miterlimit": "10",
+                                                "font-family": "'LilitaOne'",
+                                                "font-size": "700px"
+                                            },
+                                            "children": [
+                                                {
+                                                    "name": "",
+                                                    "type": "text",
+                                                    "value": "ST.JOHNS",
+                                                    "attributes": {},
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "rect",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "BORDERS",
+                                "x": "299.5",
+                                "y": "200",
+                                "fill": "none",
+                                "stroke": "#6E7431",
+                                "stroke-width": "10",
+                                "stroke-miterlimit": "10",
+                                "width": "3000.5",
+                                "height": "499.5"
+                            },
+                            "children": []
+                        },
+                        {
+                            "name": "rect",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "ARCBENDING",
+                                "x": "299.5",
+                                "y": "699.5",
+                                "fill": "none",
+                                "stroke": "#6E7431",
+                                "stroke-width": "10",
+                                "stroke-miterlimit": "10",
+                                "width": "3001",
+                                "height": "300"
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "rect",
+                    "type": "element",
+                    "value": "",
+                    "attributes": {
+                        "id": "MASCOTAREA",
+                        "x": "600",
+                        "y": "700",
+                        "fill": "none",
+                        "stroke": "#D06B00",
+                        "stroke-width": "10",
+                        "stroke-miterlimit": "10",
+                        "width": "2400",
+                        "height": "2400"
+                    },
+                    "children": []
+                }
+            ]
+        }
+    ]
+}
