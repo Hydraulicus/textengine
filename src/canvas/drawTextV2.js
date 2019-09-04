@@ -45,7 +45,7 @@ export default function(
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
   const leftPadding = (designedWidth - width) * XFactor / 2 - XFactor * lineWidth / 2;
-  // console.log('lineWidth=', lineWidth, 'scaledLineW=', scaledLineW, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
+  // console.log('lineWidth=', lineWidth, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
 
   const relativeSize = {
     w: XFactor / scaleFActor * width + XFactor / scaleFActor * lineWidth,
@@ -58,7 +58,7 @@ export default function(
     x: relativeSize.w,
     y: relativeSize.h,
   };
-  // console.log( 'coord.x0=', coord.x0, ' relativeSize.h=', relativeSize.h, 'leftPadding=', leftPadding, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
+  // console.log( 'coord.x0=', coord.x0, ' relativeSize.w=', relativeSize.w, ' relativeSize.h=', relativeSize.h, );
 
   // tCtx.textBaseline = 'bottom';
   tCtx.strokeStyle = strokeStyle;

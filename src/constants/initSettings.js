@@ -35,7 +35,7 @@ const initialProps = {
       label: 'bottom text',
       fontFamily: 'Arvo',
       fontSize: 400,
-      text: 'CiTY UNIVERSITY',
+      text: 'UNIVERSITY',
       width: 3200,
       offsetTop: 2800,
       lineWidth: 26,
