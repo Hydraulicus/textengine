@@ -10,20 +10,24 @@ const LQSize = {
 
 
 const initialProps = {
-  outline: {show: true, color: '#aa2', lineWidth: 60 },
+  outline: {
+    show: true,
+    color: '#ed1',
+    lineWidth: 60
+  },
   texts: [
     {
       id: 'topText',
       label: 'top text',
       fontFamily: 'Arvo',
       fontSize: 1000,
-      text: 'TOP STRING',
+      text: 'ST.JOHNS',
       width: 3200,
       offsetTop: 50,
       lineWidth: 26,
       fillStyle: '#c35',
       strokeStyle : '#226',
-      distortion: 500,
+      distortion: 0,
       visible: true
     },
     {
@@ -31,18 +35,20 @@ const initialProps = {
       label: 'bottom text',
       fontFamily: 'Arvo',
       fontSize: 900,
-      text: 'BOTTOM STRING',
+      text: 'UNIVERSITY',
       width: 3200,
       offsetTop: 2300,
       lineWidth: 26,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
-      distortion: -100,
+      distortion: 0,
       visible: true
     },
   ],
   mascots: {
-
+    offsetTop: 2800,
+    width: 2000,
+    height: 2000
   },
   saveHQ: false,
   saveLQ: false,

@@ -52,9 +52,9 @@
                             "type": "element",
                             "value": "",
                             "attributes": {
-                                "id": "UNIVERSITY",
-                                "transform": "matrix(1 0 0 1 977.9014 3388.4814)",
-                                "font-family": "'LilitaOne'",
+                                "id": "CONTENT_1_",
+                                "transform": "matrix(1 0 0 1 944.0522 3388.4814)",
+                                "font-family": "'Tahoma'",
                                 "font-size": "300px"
                             },
                             "children": [
@@ -82,7 +82,7 @@
                             "type": "element",
                             "value": "",
                             "attributes": {
-                                "id": "CONTENT_x5F_1_x5F_",
+                                "id": "CONTENT_x5F_2_x5F_",
                                 "fill": "none",
                                 "d": "M300,1000c301.7-125.7,826.8-300,1500-300c326.8,0,878.6,41.1,1500,300"
                             },
@@ -101,7 +101,7 @@
                                     "type": "element",
                                     "value": "",
                                     "attributes": {
-                                        "xlink:href": "#CONTENT_x5F_1_x5F_",
+                                        "xlink:href": "#CONTENT_x5F_2_x5F_",
                                         "startOffset": "0%"
                                     },
                                     "children": [
@@ -113,7 +113,7 @@
                                                 "stroke": "#969696",
                                                 "stroke-width": "10",
                                                 "stroke-miterlimit": "10",
-                                                "font-family": "'LilitaOne'",
+                                                "font-family": "'Tahoma'",
                                                 "font-size": "700px"
                                             },
                                             "children": [
