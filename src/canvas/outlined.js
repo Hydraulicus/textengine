@@ -7,8 +7,8 @@ export default function (wrappedComp, props) {
     offsetTop,
     lineWidth: textLineWidth
   } = props;
-  const newOffsetTop = offsetTop - lineWidth / 2;
-  const newLineWidth = lineWidth + textLineWidth;
+  const newLineWidth = textLineWidth + lineWidth;
+  const newOffsetTop = offsetTop - (lineWidth - textLineWidth) / 2;
   const newProps = {
     ...props,
     fillStyle: color,

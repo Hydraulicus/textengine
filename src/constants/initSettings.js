@@ -12,7 +12,7 @@ const LQSize = {
 const initialProps = {
   outline: {
     show: true,
-    color: '#ed1',
+    color: '#ec2',
     lineWidth: 60
   },
   texts: [
@@ -27,17 +27,17 @@ const initialProps = {
       lineWidth: 26,
       fillStyle: '#c35',
       strokeStyle : '#226',
-      distortion: 0,
+      distortion: 100,
       visible: true
     },
     {
       id: 'bottomText',
       label: 'bottom text',
       fontFamily: 'Arvo',
-      fontSize: 900,
-      text: 'UNIVERSITY',
+      fontSize: 400,
+      text: 'CiTY UNIVERSITY',
       width: 3200,
-      offsetTop: 2300,
+      offsetTop: 2800,
       lineWidth: 26,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',

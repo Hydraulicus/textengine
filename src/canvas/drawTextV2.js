@@ -31,9 +31,6 @@ export default function(
   const YFactor = ctxHeight / designedHeight;
   const OFactor = Math.sqrt(XFactor * XFactor + YFactor * YFactor);
 
-
-  const leftPadding = (designedWidth - width) * XFactor / 2;
-
   // ctx.fillStyle = 'rgba(10,0,0, 0.05)';
   // ctx.fillRect(0,0, ctxWidth, ctxHeight);
 
@@ -47,20 +44,21 @@ export default function(
     fontFamily
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
-  const scaledLineW = YFactor / scaleFActor * lineWidth / 2;
-  // console.log('lineWidth=', lineWidth, 'offsetTop=', offsetTop, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, 'yOffset=', yOffset);
+  const leftPadding = (designedWidth - width) * XFactor / 2 - XFactor * lineWidth / 2;
+  // console.log('lineWidth=', lineWidth, 'scaledLineW=', scaledLineW, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
 
   const relativeSize = {
-    w: XFactor / scaleFActor * width,
-    h: textHeight
+    w: XFactor / scaleFActor * width + XFactor / scaleFActor * lineWidth,
+    h: textHeight + YFactor / scaleFActor * lineWidth
   };
 
   const coord = {
-    x0: 0,
-    y0: scaledLineW,
+    x0: XFactor / scaleFActor * lineWidth / 2,
+    y0: YFactor / scaleFActor * lineWidth / 2,
     x: relativeSize.w,
     y: relativeSize.h,
   };
+  // console.log( 'coord.x0=', coord.x0, ' relativeSize.h=', relativeSize.h, 'leftPadding=', leftPadding, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
 
   // tCtx.textBaseline = 'bottom';
   tCtx.strokeStyle = strokeStyle;
@@ -74,8 +72,8 @@ export default function(
   tCtx.textAlign = 'left';
   tCtx.font=`${ YFactor * fontSize }px ${fontFamily}`;
 
-  tCtx.fillText(text, coord.x0, (textHeight + scaledLineW ), XFactor * width);
-  tCtx.strokeText(text, coord.x0, (textHeight + scaledLineW ), XFactor * width);
+  tCtx.fillText(text, coord.x0, relativeSize.h, XFactor * width);
+  tCtx.strokeText(text, coord.x0, relativeSize.h, XFactor * width);
 
   const amplitude = distortion * YFactor;
   if (distortion !== 0 ) {
@@ -84,7 +82,7 @@ export default function(
       relativeSize.w, relativeSize.h + Math.abs(amplitude)
     );
     const scaledImageData = scaleImageData({ctx: tCtx, imageData, amplitude, curve: x => x * x});
-    tCtx.putImageData(scaledImageData, coord.x0, 0);
+    tCtx.putImageData(scaledImageData, 0, 0);
   }
 
   const img = new Image();
@@ -95,9 +93,9 @@ export default function(
     img.onload = function (){
       ctx.drawImage(img,
         0, 0,
-        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude),
-        leftPadding, offsetTop * YFactor,
-        width * XFactor, textHeight + 2 * Math.abs(amplitude)
+        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude) + YFactor / scaleFActor * lineWidth ,
+        leftPadding, offsetTop * YFactor - 0.5 * YFactor * lineWidth,
+        width * XFactor + XFactor * lineWidth, textHeight + 1.5*YFactor * lineWidth + 2 * Math.abs(amplitude)
       );
       resolve('drown')
     };

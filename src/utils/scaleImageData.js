@@ -1,5 +1,5 @@
 function scaleImageData({ctx, imageData,  amplitude, curve}) {
-  const halfWidth = imageData.width * 0.5 || ctx.width / 2;
+  const halfWidth = imageData.width / 2 || ctx.width / 2;
   const orientation = amplitude < 0 ? -1 : 0;
   var scaled = ctx.createImageData(imageData.width, imageData.height + Math.abs(amplitude));
   for(var row = 0; row < imageData.height; row++) {
