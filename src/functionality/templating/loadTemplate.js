@@ -1,4 +1,4 @@
-import {getJSONfile, deepFind} from '../../utils/index'
+import {getJSONfile} from '../../utils/index'
 
 export default async (id, JSONS) => {
 

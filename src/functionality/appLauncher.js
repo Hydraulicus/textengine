@@ -1,23 +1,22 @@
-import React, {Fragment } from 'react';
 import _ from 'lodash'
-import { SidePanel, MascotsPanel, TemplatesPanel, Header } from './../'
-import { usePersistentCanvas } from './../../canvas'
-import { MainLayout } from './../UI/'
+import { usePersistentCanvas } from './../canvas'
 
+export default function (component) {
 
-export default function ({HQSize, ...theRestInitProps}) {
-  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...theRestInitProps});
+  return function(initialProps) {
 
-  function eventHandler(e) {
-    // console.log('eventHandler', e);
-    // setProps({...props, ...e })
-    setProps(_.defaultsDeep(e, props))
+    const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...initialProps});
+
+    function eventHandler(e) {
+      // console.log('eventHandler', e);
+      setProps(_.defaultsDeep(e, props))
+    }
+
+    console.log('appLauncher return function initialProps=', initialProps)
+
+    return component({...initialProps, ...props, setProps, canvasRef, textCanvasREf, eventHandler})
+
   }
 
-  return (
-    <Fragment>
-      <MainLayout {...props} />
-    </Fragment>
-  )
 }
 

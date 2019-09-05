@@ -4,7 +4,7 @@ import Outlined from './outlined'
 import DrawImageOutline from './drawImageOutline'
 
 export default async function (ctx, tCtx, props) {
-  console.log('MainLayout props =', props);
+  // console.log('MainLayout props =', props);
 
   const { outline: {show: outlineShow}, } = props;
   // ctx.fillStyle = '#fff';

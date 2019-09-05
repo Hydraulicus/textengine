@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import { loadInitialState } from './functionality'
+// import { loadInitialState, appLauncher } from './functionality'
 import { MainLayout } from './UI/'
 import {initialProps} from './constants/initSettings';
 import './Index.module.scss'
@@ -10,6 +10,7 @@ function App() {
   const [props, setProps] = useState(initialProps);
 
   const content = (isMounted )
+    // ? {appLauncher(<MainLayout {...props} />)}
     ? <MainLayout {...props} />
     : <span style={{fontFamily: 'Arvo-Bold'}}>Loading...</span>;
 

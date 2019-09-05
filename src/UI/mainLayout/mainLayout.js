@@ -1,13 +1,12 @@
 import React, {Fragment } from 'react';
-import _ from 'lodash'
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Paper from '@material-ui/core/Paper';
+import { appLauncher } from './../../functionality'
 import { SidePanel, MascotsPanel, TemplatesPanel, Header } from './../'
-import { usePersistentCanvas } from './../../canvas'
 import styles from './Index.module.scss'
 
 const useStyles = makeStyles(theme => ({
@@ -23,14 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function MainLayout({HQSize, ...theRestInitProps}) {
-  const [props, setProps, canvasRef, textCanvasREf] = usePersistentCanvas({...theRestInitProps});
-
-  function eventHandler(e) {
-    // console.log('eventHandler', e);
-    // setProps({...props, ...e })
-    setProps(_.defaultsDeep(e, props))
-  }
+function MainLayout(props) {
+  // console.log('mainLayout theRestInitProps=', props);
+  const {HQSize, setProps, canvasRef, textCanvasREf, eventHandler} = props;
 
   const classes = useStyles();
 
@@ -81,4 +75,4 @@ function MainLayout({HQSize, ...theRestInitProps}) {
   )
 }
 
-export default MainLayout
+export default appLauncher( MainLayout )
