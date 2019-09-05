@@ -54,6 +54,11 @@ const tileData = [
            title: 'react',
            author: 'Facebook',
          },
+       {
+           img: mascots.ninja,
+           title: 'ninja',
+           author: 'Historic',
+         },
 ];
 
 
@@ -75,7 +80,13 @@ export default function ({eventHandler}) {
               className={classes.mascotImg}
               src={tile.img}
               alt={tile.title}
-              onClick={ e => { eventHandler({mascot: e.target.alt}) } }
+              onClick={ e => {
+                eventHandler(
+                  {
+                    mascots: {id: e.target.alt}
+                  }
+                  )
+              } }
             />
           </GridListTile>
         ))}

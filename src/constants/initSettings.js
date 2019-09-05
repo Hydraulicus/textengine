@@ -38,7 +38,7 @@ const initialProps = {
       text: 'UNIVERSITY',
       width: 3200,
       offsetTop: 2800,
-      lineWidth: 26,
+      lineWidth: 16,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
       distortion: 0,
@@ -48,7 +48,8 @@ const initialProps = {
   mascots: {
     offsetTop: 2800,
     width: 2000,
-    height: 2000
+    height: 2000,
+    id: 'elephant'
   },
   saveHQ: false,
   saveLQ: false,
@@ -57,6 +58,7 @@ const initialProps = {
   },
   HQSize,
   LQSize,
+  designedSize: {...HQSize},
 };
 
 export {HQSize, LQSize, initialProps};

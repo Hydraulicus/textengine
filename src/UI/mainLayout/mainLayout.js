@@ -1,4 +1,5 @@
 import React, {Fragment } from 'react';
+import _ from 'lodash'
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -27,7 +28,8 @@ function MainLayout({HQSize, ...theRestInitProps}) {
 
   function eventHandler(e) {
     // console.log('eventHandler', e);
-    setProps({...props, ...e })
+    // setProps({...props, ...e })
+    setProps(_.defaultsDeep(e, props))
   }
 
   const classes = useStyles();

@@ -14,7 +14,7 @@ const deconstructTextTree = (childrens, initProps) => {
   // console.log('flattenObject = ', flattenObject(filtered));
 
   const addedProps = childrens.reduce(
-  // const addedProps = filtered.reduce(
+    // const addedProps = filtered.reduce(
     (props, item, idx) => {
       switch (true) {
 
@@ -35,18 +35,18 @@ const deconstructTextTree = (childrens, initProps) => {
           /* getting text options */
           // console.log(idx, 'CONTENT item', item);
 
-            let fontFamily = getPropValues(item, "font-family")[0];
+          let fontFamily = getPropValues(item, "font-family")[0];
 
-            fontFamily = fontFamily && fontFamily.replace(/[^a-zA-Z-]+/g, ''); /* extract letters and - */
-            // fontFamily = fontFamily && fontFamily.replace(/[^w-]+/gi, ''); /* extract any single alphanumeric character or underscore and - */
+          fontFamily = fontFamily && fontFamily.replace(/[^a-zA-Z-]+/g, ''); /* extract letters and - */
+          // fontFamily = fontFamily && fontFamily.replace(/[^w-]+/gi, ''); /* extract any single alphanumeric character or underscore and - */
 
-            let fontSize = getPropValues(item, "font-size")[0];
-            fontSize = fontSize && fontSize.replace(/[^\d.,]+/g, ''); /* extract digits only */
+          let fontSize = getPropValues(item, "font-size")[0];
+          fontSize = fontSize && fontSize.replace(/[^\d.,]+/g, ''); /* extract digits only */
 
-            let lineWidth = getPropValues(item, "stroke-width")[0];
-            lineWidth = lineWidth && +lineWidth; /* make it numerical */
+          let lineWidth = getPropValues(item, "stroke-width")[0];
+          lineWidth = lineWidth && +lineWidth; /* make it numerical */
 
-            const strokeStyle = getPropValues(item, "stroke")[0];
+          const strokeStyle = getPropValues(item, "stroke")[0];
 
           return {
             ...props,
@@ -57,11 +57,11 @@ const deconstructTextTree = (childrens, initProps) => {
           }
         }
 
-       case (/ARCBENDING/.test(item.attributes.id)) : {
-         /* getting text bending options */
+        case (/ARCBENDING/.test(item.attributes.id)) : {
+          /* getting text bending options */
           // console.log(idx, 'ARCBENDING item', item);
-         let distortion = getPropValues(item, "height")[0];
-         distortion = distortion && +distortion; /* make it numerical */
+          let distortion = getPropValues(item, "height")[0];
+          distortion = distortion && +distortion; /* make it numerical */
           return {
             ...props,
             ...(distortion && {distortion}), // if distortion is defined
@@ -114,11 +114,15 @@ export default JSONTemplate => {
 
         }
         case (/MASCOTAREA/.test(item.attributes.id)) : {
-          const {mascots = []} = props;
-          mascots.push(deconstructMascotTree(item, {}))
+          const {mascots = {}} = props;
+          const { offsetTop, width, height } = (deconstructMascotTree(item, {}))
           return {
             ...props,
-            ...mascots,
+            mascots: {
+              ...(offsetTop && {offsetTop}), // if distortion is defined
+              ...(width && {width}), // if distortion is defined
+              ...(height && {height}), // if distortion is defined
+            },
           }
         }
         default:
@@ -131,10 +135,8 @@ export default JSONTemplate => {
 
   const [, , width = 3600, height = 3600] = viewBox.split(' ');
 
-  // console.log('EVENTIALLY props =', props);
-
   return {
-    HQSize: {width, height},
+    designedSize: {width, height},
     ...props
   }
 }

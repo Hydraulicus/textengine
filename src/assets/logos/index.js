@@ -10,9 +10,13 @@ import _react from './JSONS/_react.json';
 import rooster from './fullSize/rooster.svg';
 import _rooster from './JSONS/_rooster.json';
 
+import ninja from './fullSize/ninja.svg';
+import _ninja from './JSONS/_ninja.json';
+
 export default  {
   elephant, _elephant,
   horse, _horse,
   react, _react,
-  rooster, _rooster
+  rooster, _rooster,
+  ninja, _ninja,
 }

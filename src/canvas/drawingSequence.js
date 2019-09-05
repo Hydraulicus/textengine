@@ -31,13 +31,13 @@ export default async function (ctx, tCtx, props) {
 
   (outlineShow && await DrawImageOutline({
     ctx,
-    id: props.mascot,
+      ...props,
     outline: props.outline,
   }));
 
   await DrawImage({
     ctx,
-    id: props.mascot,
+    ...props,
   });
 
   await DrawText(

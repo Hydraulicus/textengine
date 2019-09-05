@@ -4,18 +4,35 @@ import JSONS from './../assets/logos/'
  const drawImageOutline = async function (
   {
     ctx,
-    id = 'elephant',
+    // id = 'elephant',
     outline: {
       color = '#ff0',
       lineWidth = 40
+    },
+    mascots: {
+      offsetTop,
+      width,
+      height,
+      id,
+    },
+    designedSize: {
+      width: designedWidth,
+      height: designedHeight
     }
   }
 ) {
+   const { width: ctxWidth, height: ctxHeight } = ctx.canvas;
+   const XFactor = ctxWidth / designedWidth;
+   const YFactor = ctxHeight / designedHeight;
+   const leftPadding = (designedWidth - width) * XFactor / 2;
+
+
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
 
   const JSONSVGImage = await getJSONfile(id, JSONS);
   const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
-    const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
+  const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
+  console.log('outlineTag=', outlineTag)
   const outLineD = outlineTag.attributes.d;
   const outLineStrokeWidth = outlineTag.attributes['stroke-width'];
   const strokeWidth = ( outLineStrokeWidth > 0 ) ? outLineStrokeWidth : lineWidth;
@@ -32,7 +49,7 @@ import JSONS from './../assets/logos/'
   img.src = 'data:image/svg+xml;base64,'+svg64;
   return new Promise(resolve => {
     img.onload = function (){
-      ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
+      ctx.drawImage(img, leftPadding, offsetTop*YFactor, width*XFactor, height*YFactor);
       resolve('drown')
     };
   });

@@ -19,7 +19,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "svg2json": "svgson ./src/assets/logos/fullSize/ --separated --output ./src/assets/logos/JSONS/ && svgson ./src/assets/templates/SVG/ --pretty --separated --output ./src/assets/templates/JSONS/",
-    "svgo": "svgo --folder=./src/assets/templates/SVG/ -o ./src/assets/templates/SVG-OPTIMIZED --config=./svgo.yml ",
+    "svgo": "svgo --folder=./src/assets/templates/SVG/ -o ./src/assets/templates/SVG-OPTIMIZED --config=./svgo.yml && svgo --folder=./src/assets/logos/fullSize/ -o ./src/assets/logos/SVG-OPTIMIZED --config=./svgo.yml",
     "svg2js": "svgo --folder=./src/assets/templates/SVG/ -o ./src/assets/templates/SVG-OPTIMIZED --enable=svg2js",
     "build": "npm run svg2json && react-scripts build",
     "test": "react-scripts test",
