@@ -11,7 +11,7 @@ function App() {
 
   const content = (isMounted )
     ? <MainLayout {...props} />
-    : <span style={{fontFamily: 'Arvo'}}>Loading...</span>;
+    : <span style={{fontFamily: 'Arvo-Bold'}}>Loading...</span>;
 
   useEffect(() => {
     loadInitialState(props).then( p => {

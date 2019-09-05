@@ -19,7 +19,7 @@ const initialProps = {
     {
       id: 'topText',
       label: 'top text',
-      fontFamily: 'Arvo',
+      fontFamily: 'Arvo-Bold',
       fontSize: 1000,
       text: 'ST.JOHNS',
       width: 3200,
@@ -33,7 +33,7 @@ const initialProps = {
     {
       id: 'bottomText',
       label: 'bottom text',
-      fontFamily: 'Arvo',
+      fontFamily: 'Arvo-Bold',
       fontSize: 400,
       text: 'UNIVERSITY',
       width: 3200,

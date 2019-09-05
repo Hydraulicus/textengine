@@ -3,8 +3,8 @@ import icons from './icons'
 
 const fonts = [
   {
-    value: 'Arvo',
-    label: 'Arvo',
+    value: 'Arvo-Bold',
+    label: 'Arvo-Bold',
   },
   {
     value: 'AtomicAge',

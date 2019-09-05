@@ -36,10 +36,12 @@ const deconstructTextTree = (childrens, initProps) => {
           // console.log(idx, 'CONTENT item', item);
 
             let fontFamily = getPropValues(item, "font-family")[0];
-            fontFamily = fontFamily && fontFamily.replace(/[^a-zA-Z]+/g, ''); /* extract letters only */
+
+            fontFamily = fontFamily && fontFamily.replace(/[^a-zA-Z-]+/g, ''); /* extract letters and - */
+            // fontFamily = fontFamily && fontFamily.replace(/[^w-]+/gi, ''); /* extract any single alphanumeric character or underscore and - */
 
             let fontSize = getPropValues(item, "font-size")[0];
-            fontSize = fontSize && fontSize.replace(/[^0-9]+/g, ''); /* extract digits only */
+            fontSize = fontSize && fontSize.replace(/[^\d.,]+/g, ''); /* extract digits only */
 
             let lineWidth = getPropValues(item, "stroke-width")[0];
             lineWidth = lineWidth && +lineWidth; /* make it numerical */

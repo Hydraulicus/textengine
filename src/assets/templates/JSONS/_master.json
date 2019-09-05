@@ -4,13 +4,13 @@
     "value": "",
     "attributes": {
         "version": "1.1",
-        "baseProfile": "basic",
         "id": "Layer_1",
         "xmlns": "http://www.w3.org/2000/svg",
         "xmlns:xlink": "http://www.w3.org/1999/xlink",
         "x": "0px",
         "y": "0px",
         "viewBox": "0 0 3600 3600",
+        "enable-background": "new 0 0 3600 3600",
         "xml:space": "preserve"
     },
     "children": [
@@ -36,14 +36,14 @@
                             "value": "",
                             "attributes": {
                                 "id": "BORDERS_1_",
-                                "x": "300",
-                                "y": "3000",
+                                "x": "600",
+                                "y": "3100",
                                 "fill": "none",
                                 "stroke": "#0046D0",
                                 "stroke-width": "10",
                                 "stroke-miterlimit": "10",
-                                "width": "3000",
-                                "height": "400"
+                                "width": "2400",
+                                "height": "300"
                             },
                             "children": []
                         },
@@ -53,15 +53,16 @@
                             "value": "",
                             "attributes": {
                                 "id": "CONTENT_1_",
-                                "transform": "matrix(1 0 0 1 944.0522 3388.4814)",
+                                "transform": "matrix(1.3048 0 0 1 592.5933 3375.8389)",
+                                "fill": "#D00000",
                                 "font-family": "'Tahoma'",
-                                "font-size": "300px"
+                                "font-size": "332.1714px"
                             },
                             "children": [
                                 {
                                     "name": "",
                                     "type": "text",
-                                    "value": "Lorem ipsum",
+                                    "value": "UNIVERSITY",
                                     "attributes": {},
                                     "children": []
                                 }
@@ -113,8 +114,8 @@
                                                 "stroke": "#969696",
                                                 "stroke-width": "10",
                                                 "stroke-miterlimit": "10",
-                                                "font-family": "'Tahoma'",
-                                                "font-size": "700px"
+                                                "font-family": "'Arvo-Bold'",
+                                                "font-size": "600px"
                                             },
                                             "children": [
                                                 {
