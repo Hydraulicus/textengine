@@ -10,6 +10,7 @@ const LQSize = {
 
 
 const initialProps = {
+  template: { id: 'builtin'},
   outline: {
     show: true,
     color: '#ec2',
@@ -27,7 +28,7 @@ const initialProps = {
       lineWidth: 26,
       fillStyle: '#c35',
       strokeStyle : '#226',
-      distortion: 100,
+      distortion: 600,
       visible: true
     },
     {
@@ -46,9 +47,9 @@ const initialProps = {
     },
   ],
   mascots: {
-    offsetTop: 2800,
-    width: 2000,
-    height: 2000,
+    offsetTop: 700,
+    width: 2400,
+    height: 2400,
     id: 'elephant'
   },
   saveHQ: false,

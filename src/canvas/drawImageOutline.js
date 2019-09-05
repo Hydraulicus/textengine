@@ -4,7 +4,6 @@ import JSONS from './../assets/logos/'
  const drawImageOutline = async function (
   {
     ctx,
-    // id = 'elephant',
     outline: {
       color = '#ff0',
       lineWidth = 40
@@ -13,7 +12,7 @@ import JSONS from './../assets/logos/'
       offsetTop,
       width,
       height,
-      id,
+      id = 'elephant',
     },
     designedSize: {
       width: designedWidth,
@@ -26,13 +25,11 @@ import JSONS from './../assets/logos/'
    const YFactor = ctxHeight / designedHeight;
    const leftPadding = (designedWidth - width) * XFactor / 2;
 
-
   const img = new Image(ctx.canvas.width, ctx.canvas.height);
 
   const JSONSVGImage = await getJSONfile(id, JSONS);
   const outLineViewBox = JSONSVGImage['attributes']['viewBox'];
   const outlineTag = deepFind(JSONSVGImage.children, ['attributes','id'], "OUTLINE");
-  console.log('outlineTag=', outlineTag)
   const outLineD = outlineTag.attributes.d;
   const outLineStrokeWidth = outlineTag.attributes['stroke-width'];
   const strokeWidth = ( outLineStrokeWidth > 0 ) ? outLineStrokeWidth : lineWidth;

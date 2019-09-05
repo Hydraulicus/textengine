@@ -14,11 +14,11 @@ function App() {
     : <span style={{fontFamily: 'Arvo-Bold'}}>Loading...</span>;
 
   useEffect(() => {
-    loadInitialState(props).then( p => {
-        setProps(p)
+    // loadInitialState(props).then( p => {
+    //     setProps(p)
         setIsMounted(true)
-      }
-    );
+      // }
+    // );
   } , []);
 
   // useEffect(() => {

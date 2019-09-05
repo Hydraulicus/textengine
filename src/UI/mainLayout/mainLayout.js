@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Paper from '@material-ui/core/Paper';
-import { SidePanel, MascotsPanel, Header } from './../'
+import { SidePanel, MascotsPanel, TemplatesPanel, Header } from './../'
 import { usePersistentCanvas } from './../../canvas'
 import styles from './Index.module.scss'
 
@@ -67,6 +67,7 @@ function MainLayout({HQSize, ...theRestInitProps}) {
 
 
         <Grid item xs={4}>
+          <TemplatesPanel eventHandler={eventHandler}/>
           <MascotsPanel eventHandler={eventHandler}/>
         </Grid>
 
