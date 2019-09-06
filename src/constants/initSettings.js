@@ -47,9 +47,9 @@ const initialProps = {
     },
   ],
   mascots: {
-    offsetTop: 700,
-    width: 2400,
-    height: 2400,
+    offsetTop: 650,
+    width: 2500,
+    height: 2500,
     id: 'elephant'
   },
   saveHQ: false,
@@ -60,6 +60,7 @@ const initialProps = {
   HQSize,
   LQSize,
   designedSize: {...HQSize},
+  // redrawCanvas: true
 };
 
 export {HQSize, LQSize, initialProps};

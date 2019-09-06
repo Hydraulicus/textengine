@@ -13,8 +13,9 @@ export function usePersistentState(init) {
   return [props, setProps]
 }
 
-export function usePersistentCanvas(initialProps) {
-  const [props, setProps] = usePersistentState(initialProps);
+// export function usePersistentCanvas(initialProps) {
+//   const [props, setProps] = usePersistentState(initialProps);
+export function usePersistentCanvas({setProps, ...props}) {
   const canvasRef = useRef(null);
   const textCanvasREf = useRef(null);
 
@@ -26,7 +27,6 @@ export function usePersistentCanvas(initialProps) {
   };
 
   async function drawing (ctx, tCtx, props) {
-    // console.log('drawing props =', props);
 
     await draw(ctx, tCtx, props);
     if (props.saveLQ || props.saveHQ) {
@@ -40,6 +40,8 @@ export function usePersistentCanvas(initialProps) {
   }
 
   useEffect( () => {
+    console.info('DRAWING props =', props.redrawCanvas, props);
+
     const canvas = canvasRef.current;
     const textCanvas = textCanvasREf.current;
     const ctx = canvas.getContext('2d');
@@ -54,8 +56,11 @@ export function usePersistentCanvas(initialProps) {
     textCanvas.setAttribute('width', canvasResolution.width);
     textCanvas.setAttribute('height', canvasResolution.height);
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    drawing(ctx, tCtx, props)
+    // if (props.redrawCanvas) {
+      drawing(ctx, tCtx, props)
+    // }
   });
 
-  return [props, setProps, canvasRef, textCanvasREf]
+  // return [props, setProps, canvasRef, textCanvasREf]
+  return [canvasRef, textCanvasREf]
 }

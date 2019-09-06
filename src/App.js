@@ -1,6 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-// import { loadInitialState, appLauncher } from './functionality'
-import { MainLayout } from './UI/'
+import {MainLayout} from './UI/'
 import {initialProps} from './constants/initSettings';
 import './Index.module.scss'
 import './App.css'
@@ -10,21 +9,16 @@ function App() {
   const [props, setProps] = useState(initialProps);
 
   const content = (isMounted )
-    // ? {appLauncher(<MainLayout {...props} />)}
-    ? <MainLayout {...props} />
+    ? <MainLayout {...props} setProps={setProps}/>
     : <span style={{fontFamily: 'Arvo-Bold'}}>Loading...</span>;
 
   useEffect(() => {
-    // loadInitialState(props).then( p => {
-    //     setProps(p)
         setIsMounted(true)
-      // }
-    // );
   } , []);
 
-  // useEffect(() => {
-  //   // console.log('LoadedTemplateState props', props);
-  // } , [props]);
+  useEffect(() => {
+    console.log('APPPPP props', props);
+  } , [props]);
 
   return (<Fragment>
       {content}

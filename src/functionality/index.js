@@ -1,7 +1,7 @@
-import loadInitialState from './loadInitialState'
+import applayTemplate from './applayTemplate'
 import appLauncher from './appLauncher'
 
 export {
-  loadInitialState,
+  applayTemplate,
   appLauncher
 }

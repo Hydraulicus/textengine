@@ -82,10 +82,9 @@ const deconstructTextTree = (childrens, initProps) => {
 }
 
 const deconstructMascotTree = (childrens, initProps) => {
-  console.log('============== deconstructMascotTree =====================');
-  console.log(JSON.stringify(childrens, null, 2));
+  // console.log('============== deconstructMascotTree =====================');
+  // console.log(JSON.stringify(childrens, null, 2));
   const { attributes: {y, width, height} } = childrens;
-  console.log(y, width, height);
   return {
     ...initProps,
     offsetTop: y,

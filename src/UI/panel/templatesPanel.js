@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
 export default function ({eventHandler}) {
   const classes = useStyles();
 
-console.log('templates =',templates)
+// console.log('templates =',templates)
   return (
     <div className={classes.root}>
 

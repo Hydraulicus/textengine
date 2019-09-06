@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function MainLayout(props) {
-  // console.log('mainLayout theRestInitProps=', props);
-  const {HQSize, setProps, canvasRef, textCanvasREf, eventHandler} = props;
+function MainLayout({setProps, ...props}) {
+  console.log('mainLayout props.template.id=', props.template.id, '  props.redrawCanvas =', props.redrawCanvas);
+  const {HQSize, canvasRef, textCanvasREf, eventHandler} = props;
 
   const classes = useStyles();
 
@@ -41,7 +41,7 @@ function MainLayout(props) {
 
         <Grid item xs={5}>
           <div className={styles.canvaContainer}>
-            <canvas
+            <canvas key={props.template.id}
               id='THEMAINCANVAS'
               className={styles.canvases}
               ref={canvasRef}
