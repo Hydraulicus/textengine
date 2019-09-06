@@ -1,20 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { saveAs } from 'file-saver';
 import { HQSize } from './../constants/initSettings';
 import draw from './drawingSequence'
 
-export function usePersistentState(init) {
-  const [props, setProps] = useState(init);
-
-  useEffect(() => {
-    // localStorage.setItem('draw-app', JSON.stringify(props))
-    // console.log('props changed', props)
-  });
-  return [props, setProps]
-}
-
-// export function usePersistentCanvas(initialProps) {
-//   const [props, setProps] = usePersistentState(initialProps);
 export function usePersistentCanvas({setProps, ...props}) {
   const canvasRef = useRef(null);
   const textCanvasREf = useRef(null);
@@ -40,8 +28,6 @@ export function usePersistentCanvas({setProps, ...props}) {
   }
 
   useEffect( () => {
-    console.info('DRAWING props =', props.redrawCanvas, props);
-
     const canvas = canvasRef.current;
     const textCanvas = textCanvasREf.current;
     const ctx = canvas.getContext('2d');
@@ -56,11 +42,11 @@ export function usePersistentCanvas({setProps, ...props}) {
     textCanvas.setAttribute('width', canvasResolution.width);
     textCanvas.setAttribute('height', canvasResolution.height);
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    // if (props.redrawCanvas) {
+    if (props.redrawCanvas) {
+      // console.info('DRAWING props =', props.redrawCanvas, props);
       drawing(ctx, tCtx, props)
-    // }
+    }
   });
 
-  // return [props, setProps, canvasRef, textCanvasREf]
   return [canvasRef, textCanvasREf]
 }

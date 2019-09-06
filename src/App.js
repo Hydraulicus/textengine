@@ -16,10 +16,6 @@ function App() {
         setIsMounted(true)
   } , []);
 
-  useEffect(() => {
-    console.log('APPPPP props', props);
-  } , [props]);
-
   return (<Fragment>
       {content}
     </Fragment>

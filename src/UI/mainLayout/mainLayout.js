@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function MainLayout({setProps, ...props}) {
-  console.log('mainLayout props.template.id=', props.template.id, '  props.redrawCanvas =', props.redrawCanvas);
+  // console.log('mainLayout props.template.id=', props.template.id, '  props.redrawCanvas =', props.redrawCanvas);
   const {HQSize, canvasRef, textCanvasREf, eventHandler} = props;
 
   const classes = useStyles();
