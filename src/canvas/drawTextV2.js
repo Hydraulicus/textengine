@@ -45,7 +45,6 @@ export default function(
   });
   const scaleFActor = ( XFactor * width / textWidth > 1 ) ? XFactor * width / textWidth : 1;
   const leftPadding = (designedWidth - width) * XFactor / 2 - XFactor * lineWidth / 2;
-  // console.log('lineWidth=', lineWidth, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, 'OFactor=', OFactor, ' leftPadding=', leftPadding);
 
   const relativeSize = {
     w: XFactor / scaleFActor * width + XFactor / scaleFActor * lineWidth,
@@ -75,6 +74,8 @@ export default function(
   tCtx.fillText(text, coord.x0, relativeSize.h, XFactor * width);
   tCtx.strokeText(text, coord.x0, relativeSize.h, XFactor * width);
 
+  console.log(text, 'lineWidth=', lineWidth, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, tCtx);
+
   const amplitude = distortion * YFactor;
   if (distortion !== 0 ) {
     const imageData = tCtx.getImageData(
@@ -93,9 +94,9 @@ export default function(
     img.onload = function (){
       ctx.drawImage(img,
         0, 0,
-        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude) + YFactor / scaleFActor * lineWidth ,
+        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude) + 0.5 * YFactor * lineWidth  / scaleFActor,
         leftPadding, offsetTop * YFactor - 0.5 * YFactor * lineWidth,
-        width * XFactor + XFactor * lineWidth, textHeight + 1.5*YFactor * lineWidth + 2 * Math.abs(amplitude)
+        width * XFactor + XFactor * lineWidth, textHeight + 1.5 * YFactor * lineWidth + 2 * Math.abs(amplitude)
       );
       resolve('drown')
     };

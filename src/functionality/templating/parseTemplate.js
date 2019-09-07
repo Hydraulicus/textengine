@@ -5,7 +5,7 @@ const getPropValues = (o, prop) =>
     (key === prop && res.push(value), value)), res))([]);
 
 const deconstructTextTree = (childrens, initProps) => {
-  // console.log('============== deconstructTextTree =====================');
+  console.log('============== deconstructTextTree =====================');
   // console.log(JSON.stringify(childrens, null, 2));
   // console.log('childrens=', childrens);
 
@@ -43,23 +43,26 @@ const deconstructTextTree = (childrens, initProps) => {
           let fontSize = getPropValues(item, "font-size")[0];
           fontSize = fontSize && fontSize.replace(/[^\d.,]+/g, ''); /* extract digits only */
 
-          let lineWidth = getPropValues(item, "stroke-width")[0];
+          let lineWidth = getPropValues(item, "stroke-width")[0] || 0;
           lineWidth = lineWidth && +lineWidth; /* make it numerical */
 
+          const fillStyle = getPropValues(item, "fill")[0];
           const strokeStyle = getPropValues(item, "stroke")[0];
 
           return {
             ...props,
             ...(fontFamily && {fontFamily}), // if fontFamily is defined
             ...(fontSize && {fontSize}),
-            ...(lineWidth && {lineWidth}),
+            // ...(lineWidth && {lineWidth}),
+            lineWidth,
+            ...(fillStyle && {fillStyle}),
             ...(strokeStyle && {strokeStyle}),
           }
         }
 
         case (/ARCBENDING/.test(item.attributes.id)) : {
           /* getting text bending options */
-          // console.log(idx, 'ARCBENDING item', item);
+          console.log(idx, 'ARCBENDING item', item);
           let distortion = getPropValues(item, "height")[0];
           distortion = distortion && +distortion; /* make it numerical */
           return {
@@ -78,8 +81,12 @@ const deconstructTextTree = (childrens, initProps) => {
     ,initProps
   );
 
-  return { ...initProps, ...addedProps }
-}
+  return {
+    ...initProps,
+    // distortion: 0,
+    ...addedProps
+  }
+};
 
 const deconstructMascotTree = (childrens, initProps) => {
   // console.log('============== deconstructMascotTree =====================');

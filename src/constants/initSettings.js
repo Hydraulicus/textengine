@@ -39,10 +39,10 @@ const initialProps = {
       text: 'UNIVERSITY',
       width: 3200,
       offsetTop: 2800,
-      lineWidth: 16,
+      lineWidth: 1,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
-      distortion: -200,
+      distortion: 0,
       visible: true
     },
   ],

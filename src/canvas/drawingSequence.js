@@ -57,7 +57,7 @@ export default async function (ctx, tCtx, props) {
   );
 
   return new Promise(resolve => {
-    ctx.restore();
+    // ctx.restore();
     resolve('all are drown')
   });
 }

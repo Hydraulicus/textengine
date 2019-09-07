@@ -55,6 +55,8 @@
                                 "id": "CONTENT_1_",
                                 "transform": "matrix(1.3048 0 0 1 592.5933 3375.8389)",
                                 "fill": "#D00000",
+                                "stroke": "#D00000",
+                                "stroke-miterlimit": "10",
                                 "font-family": "'Tahoma'",
                                 "font-size": "332.1714px"
                             },
@@ -111,6 +113,7 @@
                                             "type": "element",
                                             "value": "",
                                             "attributes": {
+                                                "fill": "#191919",
                                                 "stroke": "#969696",
                                                 "stroke-width": "10",
                                                 "stroke-miterlimit": "10",

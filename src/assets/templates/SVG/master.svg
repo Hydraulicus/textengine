@@ -7,12 +7,12 @@
 		
 			<rect id="BORDERS_1_" x="600" y="3100" fill="none" stroke="#0046D0" stroke-width="10" stroke-miterlimit="10" width="2400" height="300"/>
 		
-			<text id="CONTENT_1_" transform="matrix(1.3048 0 0 1 592.5933 3375.8389)" fill="#D00000" font-family="'Tahoma'" font-size="332.1714px">UNIVERSITY</text>
+			<text id="CONTENT_1_" transform="matrix(1.3048 0 0 1 592.5933 3375.8389)" fill="#D00000" stroke="#D00000" stroke-miterlimit="10" font-family="'Tahoma'" font-size="332.1714px">UNIVERSITY</text>
 	</g>
 	<g id="TEXT_x5F_1">
 		<path id="CONTENT_x5F_2_x5F_" fill="none" d="M300,1000c301.7-125.7,826.8-300,1500-300c326.8,0,878.6,41.1,1500,300"/>
 		<text id="CONTENT">		<textPath  xlink:href="#CONTENT_x5F_2_x5F_" startOffset="0%">
-<tspan  stroke="#969696" stroke-width="10" stroke-miterlimit="10" font-family="'Arvo-Bold'" font-size="600px">ST.JOHNS</tspan>		</textPath>
+<tspan  fill="#191919" stroke="#969696" stroke-width="10" stroke-miterlimit="10" font-family="'Arvo-Bold'" font-size="600px">ST.JOHNS</tspan>		</textPath>
 </text>
 		
 			<rect id="BORDERS" x="299.5" y="200" fill="none" stroke="#6E7431" stroke-width="10" stroke-miterlimit="10" width="3000.5" height="499.5"/>
