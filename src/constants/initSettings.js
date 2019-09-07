@@ -25,10 +25,10 @@ const initialProps = {
       text: 'ST.JOHNS',
       width: 3200,
       offsetTop: 50,
-      lineWidth: 26,
+      lineWidth: 36,
       fillStyle: '#c35',
       strokeStyle : '#226',
-      distortion: 600,
+      distortion: 500,
       visible: true
     },
     {
@@ -39,10 +39,10 @@ const initialProps = {
       text: 'UNIVERSITY',
       width: 3200,
       offsetTop: 2800,
-      lineWidth: 1,
+      lineWidth: 0.30,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
-      distortion: 0,
+      distortion: -100,
       visible: true
     },
   ],

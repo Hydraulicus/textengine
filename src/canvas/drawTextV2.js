@@ -48,7 +48,7 @@ export default function(
 
   const relativeSize = {
     w: XFactor / scaleFActor * width + XFactor / scaleFActor * lineWidth,
-    h: textHeight + YFactor / scaleFActor * lineWidth
+    h: textHeight + YFactor * lineWidth
   };
 
   const coord = {
@@ -94,9 +94,10 @@ export default function(
     img.onload = function (){
       ctx.drawImage(img,
         0, 0,
-        relativeSize.w, relativeSize.h + 2 * Math.abs(amplitude) + 0.5 * YFactor * lineWidth  / scaleFActor,
-        leftPadding, offsetTop * YFactor - 0.5 * YFactor * lineWidth,
-        width * XFactor + XFactor * lineWidth, textHeight + 1.5 * YFactor * lineWidth + 2 * Math.abs(amplitude)
+        relativeSize.w, 1.2 * (relativeSize.h + 0 * YFactor * lineWidth  / scaleFActor) + 2 * Math.abs(amplitude),
+        // relativeSize.w, 1.2 * relativeSize.h + 2 * Math.abs(amplitude),
+        leftPadding, offsetTop * YFactor - 0.5*1.2 * YFactor * lineWidth,
+        width * XFactor + XFactor * lineWidth, 1.2*(textHeight + 1 * YFactor * lineWidth) + 2 * Math.abs(amplitude)
       );
       resolve('drown')
     };

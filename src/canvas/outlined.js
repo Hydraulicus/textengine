@@ -2,13 +2,13 @@ export default function (wrappedComp, props) {
   const {
     outline: {
       color = '#f00',
-      lineWidth = 26
+      lineWidth = 0
     } ,
     offsetTop,
     lineWidth: textLineWidth
   } = props;
   const newLineWidth = textLineWidth + lineWidth;
-  const newOffsetTop = offsetTop - (lineWidth - textLineWidth) / 2;
+  const newOffsetTop = offsetTop - (lineWidth + 0*textLineWidth) / 2;
   const newProps = {
     ...props,
     fillStyle: color,
