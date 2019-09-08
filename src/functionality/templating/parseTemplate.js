@@ -127,7 +127,7 @@ export default JSONTemplate => {
 
         }
         case (/MASCOTAREA/.test(item.attributes.id)) : {
-          const {mascots = {}} = props;
+          // const {mascots = {}} = props;
           const { offsetTop, width, height } = (deconstructMascotTree(item, {}))
           return {
             ...props,
