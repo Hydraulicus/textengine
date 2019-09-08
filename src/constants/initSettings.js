@@ -42,7 +42,7 @@ const initialProps = {
       lineWidth: 0.30,
       fillStyle: '#eeaa59',
       strokeStyle: '#226',
-      distortion: -100,
+      distortion: -250,
       visible: true
     },
   ],

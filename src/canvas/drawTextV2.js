@@ -74,7 +74,7 @@ export default function(
   tCtx.fillText(text, coord.x0, relativeSize.h, XFactor * width);
   tCtx.strokeText(text, coord.x0, relativeSize.h, XFactor * width);
 
-  console.log(text, 'lineWidth=', lineWidth, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, tCtx);
+  // console.log(text, 'lineWidth=', lineWidth, 'strokeStyle=', strokeStyle, 'scaleFActor=', scaleFActor, tCtx);
 
   const amplitude = distortion * YFactor;
   if (distortion !== 0 ) {

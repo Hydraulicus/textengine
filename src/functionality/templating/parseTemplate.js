@@ -5,13 +5,21 @@ const getPropValues = (o, prop) =>
     (key === prop && res.push(value), value)), res))([]);
 
 const deconstructTextTree = (childrens, initProps) => {
-  console.log('============== deconstructTextTree =====================');
+  // console.log('============== deconstructTextTree =====================');
   // console.log(JSON.stringify(childrens, null, 2));
   // console.log('childrens=', childrens);
 
   // const filtered = JSON.parse(JSON.stringify(childrens, ['children', 'attributes', 'id', 'name', 'fill', 'stroke', 'stroke-width', 'font-family', 'font-size', 'transform', 'width', 'y'], 2));
   // console.log('filtered = ', JSON.stringify(filtered, 'none', 2));
   // console.log('flattenObject = ', flattenObject(filtered));
+
+  const anicipatedProps = {
+    'fill': 'none',
+    'stroke': '#000',
+    'stroke-width': 0,
+    'font-size': 300,
+    distortion: 0,
+  };
 
   const addedProps = childrens.reduce(
     // const addedProps = filtered.reduce(
@@ -62,7 +70,6 @@ const deconstructTextTree = (childrens, initProps) => {
 
         case (/ARCBENDING/.test(item.attributes.id)) : {
           /* getting text bending options */
-          console.log(idx, 'ARCBENDING item', item);
           let distortion = getPropValues(item, "height")[0];
           distortion = distortion && +distortion; /* make it numerical */
           return {
@@ -83,7 +90,7 @@ const deconstructTextTree = (childrens, initProps) => {
 
   return {
     ...initProps,
-    // distortion: 0,
+    ...anicipatedProps,
     ...addedProps
   }
 };
