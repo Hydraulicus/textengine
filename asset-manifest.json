@@ -1,22 +1,23 @@
 {
   "files": {
     "main.css": "/textengine/static/css/main.360e7800.chunk.css",
-    "main.js": "/textengine/static/js/main.24d52813.chunk.js",
-    "main.js.map": "/textengine/static/js/main.24d52813.chunk.js.map",
+    "main.js": "/textengine/static/js/main.dc195332.chunk.js",
+    "main.js.map": "/textengine/static/js/main.dc195332.chunk.js.map",
     "runtime~main.js": "/textengine/static/js/runtime~main.c48e5de5.js",
     "runtime~main.js.map": "/textengine/static/js/runtime~main.c48e5de5.js.map",
-    "static/js/2.9fb76cb6.chunk.js": "/textengine/static/js/2.9fb76cb6.chunk.js",
-    "static/js/2.9fb76cb6.chunk.js.map": "/textengine/static/js/2.9fb76cb6.chunk.js.map",
+    "static/js/2.e4a9bae6.chunk.js": "/textengine/static/js/2.e4a9bae6.chunk.js",
+    "static/js/2.e4a9bae6.chunk.js.map": "/textengine/static/js/2.e4a9bae6.chunk.js.map",
     "index.html": "/textengine/index.html",
-    "precache-manifest.d51ad4555a475e560b2c2d32e311afca.js": "/textengine/precache-manifest.d51ad4555a475e560b2c2d32e311afca.js",
+    "precache-manifest.668b8ff3feb489c1ed5b5d53b7d63bfe.js": "/textengine/precache-manifest.668b8ff3feb489c1ed5b5d53b7d63bfe.js",
     "service-worker.js": "/textengine/service-worker.js",
     "static/css/main.360e7800.chunk.css.map": "/textengine/static/css/main.360e7800.chunk.css.map",
     "static/media/Index.module.scss": "/textengine/static/media/PirataOne-Regular.a4fe72b9.ttf",
     "static/media/elephant.svg": "/textengine/static/media/elephant.217a2486.svg",
     "static/media/horse.svg": "/textengine/static/media/horse.125f0807.svg",
-    "static/media/master.svg": "/textengine/static/media/master.584af3e3.svg",
+    "static/media/master.svg": "/textengine/static/media/master.af7e09f3.svg",
     "static/media/ninja.svg": "/textengine/static/media/ninja.d27ef945.svg",
     "static/media/react.svg": "/textengine/static/media/react.123a7b03.svg",
-    "static/media/rooster.svg": "/textengine/static/media/rooster.531601d1.svg"
+    "static/media/rooster.svg": "/textengine/static/media/rooster.531601d1.svg",
+    "static/media/template1.svg": "/textengine/static/media/template1.2020c78f.svg"
   }
 }
