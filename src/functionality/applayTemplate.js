@@ -5,9 +5,9 @@ import templates from './../assets/templates/'
 
 export default async (initialProps) => {
 
-  const JSONTemplate = await loadTemplate('template0', templates);
+  const JSONTemplate = await loadTemplate(initialProps.template.id, templates);
   const parsedTemplate = await parseTemplate(JSONTemplate);
-  // console.log('EVENTIALLY parsedTemplate =', parsedTemplate);
+  console.log('EVENTIALLY parsedTemplate =', parsedTemplate);
 
   return {
     ...(_.defaultsDeep(parsedTemplate, initialProps))

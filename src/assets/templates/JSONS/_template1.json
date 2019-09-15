@@ -35,49 +35,35 @@
                             "type": "element",
                             "value": "",
                             "attributes": {
-                                "id": "BORDERS_1_",
-                                "x": "600",
-                                "y": "3100",
+                                "id": "BORDERS",
+                                "x": "299.5",
+                                "y": "2501",
                                 "fill": "none",
-                                "stroke": "#0046D0",
+                                "stroke": "#6E7431",
                                 "stroke-width": "10",
                                 "stroke-miterlimit": "10",
-                                "width": "2400",
-                                "height": "300"
+                                "width": "3000.5",
+                                "height": "499.5"
                             },
                             "children": []
                         },
                         {
-                            "name": "text",
+                            "name": "rect",
                             "type": "element",
                             "value": "",
                             "attributes": {
-                                "id": "CONTENT_1_",
-                                "transform": "matrix(1.3047 0 0 1 592.5977 3375.8389)",
-                                "fill": "#D00000",
-                                "font-family": "'Tahoma'",
-                                "font-size": "332.1714px"
+                                "id": "BENDING_x5F_ARC_x5F_DOWN",
+                                "x": "299.5",
+                                "y": "3000.5",
+                                "fill": "none",
+                                "stroke": "#6E7431",
+                                "stroke-width": "10",
+                                "stroke-miterlimit": "10",
+                                "width": "3001",
+                                "height": "300"
                             },
-                            "children": [
-                                {
-                                    "name": "",
-                                    "type": "text",
-                                    "value": "UNIVERSITY",
-                                    "attributes": {},
-                                    "children": []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "g",
-                    "type": "element",
-                    "value": "",
-                    "attributes": {
-                        "id": "TEXT_x5F_1"
-                    },
-                    "children": [
+                            "children": []
+                        },
                         {
                             "name": "path",
                             "type": "element",
@@ -85,7 +71,7 @@
                             "attributes": {
                                 "id": "CONTENT_x5F_2_x5F_",
                                 "fill": "none",
-                                "d": "M300,1000c301.7-125.7,826.8-300,1500-300c326.8,0,878.6,41.1,1500,300"
+                                "d": "M299,3001c51,35,993.6,294.1,1500,299c620,6,1427-250,1501-299"
                             },
                             "children": []
                         },
@@ -103,7 +89,7 @@
                                     "value": "",
                                     "attributes": {
                                         "xlink:href": "#CONTENT_x5F_2_x5F_",
-                                        "startOffset": "0%"
+                                        "startOffset": "6.103516e-03%"
                                     },
                                     "children": [
                                         {
@@ -111,17 +97,18 @@
                                             "type": "element",
                                             "value": "",
                                             "attributes": {
-                                                "stroke": "#969696",
+                                                "fill": "#FFFDB3",
+                                                "stroke": "#11110C",
                                                 "stroke-width": "20",
                                                 "stroke-miterlimit": "10",
                                                 "font-family": "'Arvo-Bold'",
-                                                "font-size": "620px"
+                                                "font-size": "350px"
                                             },
                                             "children": [
                                                 {
                                                     "name": "",
                                                     "type": "text",
-                                                    "value": "ST.JOHNS",
+                                                    "value": "ARMY COLLEGE",
                                                     "attributes": {},
                                                     "children": []
                                                 }
@@ -130,40 +117,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "name": "rect",
-                            "type": "element",
-                            "value": "",
-                            "attributes": {
-                                "id": "BORDERS",
-                                "x": "299.5",
-                                "y": "200",
-                                "fill": "none",
-                                "stroke": "#6E7431",
-                                "stroke-width": "10",
-                                "stroke-miterlimit": "10",
-                                "width": "3000.5",
-                                "height": "499.5"
-                            },
-                            "children": []
-                        },
-                        {
-                            "name": "rect",
-                            "type": "element",
-                            "value": "",
-                            "attributes": {
-                                "id": "BENDING_x5F_ARC_x5F_UP",
-                                "x": "299.5",
-                                "y": "699.5",
-                                "fill": "none",
-                                "stroke": "#6E7431",
-                                "stroke-width": "15",
-                                "stroke-miterlimit": "10",
-                                "width": "3001",
-                                "height": "300"
-                            },
-                            "children": []
                         }
                     ]
                 },
@@ -174,7 +127,7 @@
                     "attributes": {
                         "id": "MASCOTAREA",
                         "x": "600",
-                        "y": "700",
+                        "y": "503",
                         "fill": "none",
                         "stroke": "#D06B00",
                         "stroke-width": "10",
@@ -183,8 +136,72 @@
                         "height": "2400"
                     },
                     "children": []
+                },
+                {
+                    "name": "g",
+                    "type": "element",
+                    "value": "",
+                    "attributes": {
+                        "id": "TEXT_x5F_1_1_"
+                    },
+                    "children": [
+                        {
+                            "name": "rect",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "BORDERS_1_",
+                                "x": "800",
+                                "y": "200",
+                                "fill": "none",
+                                "stroke": "#0046D0",
+                                "stroke-width": "10",
+                                "stroke-miterlimit": "10",
+                                "width": "2000",
+                                "height": "300"
+                            },
+                            "children": []
+                        },
+                        {
+                            "name": "text",
+                            "type": "element",
+                            "value": "",
+                            "attributes": {
+                                "id": "CONTENT_1_",
+                                "transform": "matrix(1.3047 0 0 1 966.7441 479.3389)",
+                                "fill": "#35341F",
+                                "stroke": "#000000",
+                                "stroke-width": "2",
+                                "stroke-miterlimit": "10",
+                                "font-family": "'Arvo-Bold'",
+                                "font-size": "332.1714px"
+                            },
+                            "children": [
+                                {
+                                    "name": "",
+                                    "type": "text",
+                                    "value": "TOKYO",
+                                    "attributes": {},
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "name": "path",
+            "type": "element",
+            "value": "",
+            "attributes": {
+                "fill": "none",
+                "stroke": "#6E7431",
+                "stroke-width": "10",
+                "stroke-miterlimit": "10",
+                "d": "M266,2969"
+            },
+            "children": []
         }
     ]
 }

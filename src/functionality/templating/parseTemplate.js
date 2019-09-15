@@ -68,10 +68,11 @@ const deconstructTextTree = (childrens, initProps) => {
           }
         }
 
-        case (/ARCBENDING/.test(item.attributes.id)) : {
+        case (/BENDING/.test(item.attributes.id)) : {
           /* getting text bending options */
+          const orientation = /UP/.test(item.attributes.id) ? 1 : -1;
           let distortion = getPropValues(item, "height")[0];
-          distortion = distortion && +distortion; /* make it numerical */
+          distortion = distortion && orientation * distortion; /* make it numerical */
           return {
             ...props,
             ...(distortion && {distortion}), // if distortion is defined
